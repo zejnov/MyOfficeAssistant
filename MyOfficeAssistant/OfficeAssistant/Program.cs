@@ -12,13 +12,13 @@ namespace OfficeAssistant
             var mail = new Email
             {
                 To = "zejnov@gmail.com",
-                Subject = "Hello from app",
-                Body = $"Hi at {DateTime.UtcNow} from Mateuszeks program :D"
+                Subject = "Hello again from app",
+                Body = $"Hi at {DateTime.UtcNow} from ZjV program :D"
             };
 
-            var test = sender.SendToMany(mail);
+            sender.Send(mail);
 
-            Console.Write(test);
+            Console.Write("mail sended");
             Console.ReadKey();
         }
     }

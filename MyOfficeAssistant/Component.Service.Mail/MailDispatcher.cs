@@ -4,24 +4,36 @@ namespace Component.Service.Mail
 {
     public class MailDispatcher
     {
-        public string SendToMany(Email mail)
+        private readonly MailClient _mailClient;
+
+        public MailDispatcher()
         {
-            var mailClient = new MailClient("zejnov.net@gmail.com", "miszczu89");
+            _mailClient = new MailClient("zejnov.net@gmail.com", "miszczu89");
+        }
 
-            string[] adresses = mail.To.Split(',');
-
-            for(int i=0; i<10; i++)
-            {
-                foreach (var adress in adresses)
+        public void Send(Email mail)
+        {
+            _mailClient.SendAsnyc(
+                new Email
                 {
-                    //sendAsync
-                    mailClient.Send(
-                        new Email { To = adress, Subject = mail.Subject, Body = mail.Body });
-                }
-            }
-            
+                    To = mail.To,
+                    Subject = mail.Subject,
+                    Body = mail.Body
+                });
+        }
 
-            return $"Email '{mail.Subject}' sended to {mail.To}";
+        public void SendToMany(Email mail)
+        {
+            string[] adresses = mail.To.Split(',');
+            
+            foreach (var adress in adresses)
+            {
+                _mailClient.SendAsnyc(
+                    new Email { To = adress,
+                                Subject = mail.Subject,
+                                Body = mail.Body 
+                    });
+            }
         }
     }
 }

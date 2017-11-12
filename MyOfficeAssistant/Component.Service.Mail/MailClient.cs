@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Component.Service.Mail
 {
@@ -35,11 +36,17 @@ namespace Component.Service.Mail
         /// <param name="to">The email to send the message to.</param>
         /// <param name="subject">The subject of the messsage</param>
         /// <param name="body">The body of the message</param>
-        public void Send(Email mail)
+        private void Send(Email mail)
         {
             var fields = CreateMailPack(mail);
             var content = new FormUrlEncodedContent(fields);
             client.PostAsync("/api/Message", content).Wait();
+        }
+
+        public void SendAsnyc(Email mail)
+        {
+            //add try catch for no internet connection etc...
+            Task.Run(() => Send(mail));
         }
 
         private IEnumerable<KeyValuePair<string, string>> CreateMailPack(Email mail)
