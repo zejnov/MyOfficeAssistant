@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using OfficeAssistant.Commands.Impl;
+using AppCommands.Commands.Impl;
+using Component.Commands.Commands.Impl;
 
-namespace OfficeAssistant.Commands
+namespace AppCommands.Commands
 {
     public class CommandManagement
     {

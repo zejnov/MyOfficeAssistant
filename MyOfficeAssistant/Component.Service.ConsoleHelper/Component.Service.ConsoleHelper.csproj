@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B3022C58-0436-456C-A087-EE80335592EF}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>OfficeAssistant</RootNamespace>
-    <AssemblyName>OfficeAssistant</AssemblyName>
+    <ProjectGuid>{EC90C122-8497-4C77-AC1A-8B96DDC84776}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Component.Service.ConsoleHelper</RootNamespace>
+    <AssemblyName>Component.Service.ConsoleHelper</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,33 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assistant.cs" />
     <Compile Include="ConsoleHelper\Read.cs" />
     <Compile Include="ConsoleHelper\Write.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AppFacade\AppFacade.csproj">
-      <Project>{4E35F690-50DE-403B-A9EC-5CE2F529964F}</Project>
-      <Name>AppFacade</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Component.Commands\AppCommands.csproj">
+    <ProjectReference Include="..\Component.Commands\Component.Commands.csproj">
       <Project>{50BC2EC7-F0D3-46EC-8D87-FE0955050E23}</Project>
-      <Name>AppCommands</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Component.Service.Mail\Component.Service.Mail.csproj">
-      <Project>{C78C1ADA-6FFB-4339-A71A-7498524ED1EB}</Project>
-      <Name>Component.Service.Mail</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Extensions\Extensions.csproj">
-      <Project>{E8289571-B647-48B6-BCDC-1E3A90616D9C}</Project>
-      <Name>Extensions</Name>
+      <Name>Component.Commands</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

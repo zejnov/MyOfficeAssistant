@@ -1,4 +1,4 @@
-﻿namespace OfficeAssistant.Commands.Impl
+﻿namespace AppCommands.Commands.Impl
 {
     internal class CommandHelp : ICommand
     {

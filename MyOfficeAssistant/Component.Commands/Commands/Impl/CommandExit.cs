@@ -1,6 +1,7 @@
 ﻿using System;
+using AppCommands.Commands;
 
-namespace OfficeAssistant.Commands.Impl
+namespace Component.Commands.Commands.Impl
 {
     internal class CommandExit : ICommand
     {

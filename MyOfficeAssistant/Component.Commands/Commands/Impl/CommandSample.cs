@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Threading;
 
-namespace OfficeAssistant.Commands.Impl
+namespace AppCommands.Commands.Impl
 {
     public class CommandSample : ICommand
     {

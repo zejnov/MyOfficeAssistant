@@ -1,13 +1,13 @@
 ﻿using System;
-using AppCommands.Commands;
+using System.Collections.Generic;
+using Component.Commands.Commands;
 
-namespace OfficeAssistant.ConsoleHelper
+namespace Component.Service.ConsoleHelper.ConsoleHelper
 {
     public class Write
     {
-        internal static void AvaibleCommands()
+        internal static void AvaibleCommands(IEnumerable<ICommand> commands)
         {
-            var commands = CommandManagement.GetInstance().GetAvaibleCommandNames();
             Console.Clear();
             Console.Write("Avaible commands: ");
             var counter = 0;

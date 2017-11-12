@@ -1,4 +1,4 @@
-﻿namespace OfficeAssistant.Commands
+﻿namespace AppCommands.Commands
 {
     public interface ICommand
     {
