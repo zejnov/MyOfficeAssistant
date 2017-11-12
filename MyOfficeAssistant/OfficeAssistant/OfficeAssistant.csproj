@@ -42,6 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandDispatcher.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\Impl\CommandExit.cs" />
+    <Compile Include="Commands\Impl\CommandHelp.cs" />
+    <Compile Include="Commands\Impl\CommandSample.cs" />
+    <Compile Include="ConsoleHelper\Read.cs" />
+    <Compile Include="ConsoleHelper\Write.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -54,5 +61,6 @@
       <Name>Component.Service.Mail</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
