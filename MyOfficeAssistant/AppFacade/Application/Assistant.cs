@@ -1,12 +1,17 @@
-﻿using AppFacade.Domain;
-using Extensions;
-using OfficeAssistant.ConsoleHelper;
+﻿using Framework.OfficeAssistant.Domain;
+using Framework.OfficeAssistant.Extensions;
 
 namespace OfficeAssistant
 {
     public class Assistant
     {
         public ApplicationState AppState { get; set; }
+        private static Assistant _officeAssistant { get; set; }
+
+        public static Assistant GetInstance()
+        {
+            return _officeAssistant ?? (_officeAssistant = new Assistant());
+        }
 
         public Assistant()
         {
@@ -24,5 +29,7 @@ namespace OfficeAssistant
             Write.AvaibleCommands();
             Read.Wait();
         }
+
+        
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Component.Service.Mail;
 using Component.Service.Mail.Domain;
 using System;
-using AppFacade.Domain;
+using OfficeAssistant.Application;
 
 namespace OfficeAssistant
 {

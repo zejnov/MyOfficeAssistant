@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AppCommands.Commands.Impl;
+using OfficeAssistant.Commands.Impl;
 
-namespace AppCommands.Commands
+namespace OfficeAssistant.Commands
 {
-    public class CommandManagement
+    public class CommandManager
     {
         private readonly List<ICommand> _applicationCommands = new List<ICommand>();
-        private static CommandManagement _manager;
+        private static CommandManager _manager;
 
         /// <summary>
         /// ctor
         /// </summary>
-        public CommandManagement()
+        public CommandManager()
         {
             AddNativeOperations(); //usunąć konstruktor
         }
@@ -30,9 +30,9 @@ namespace AppCommands.Commands
         /// <summary>
         /// getting/creating one instance of manager
         /// </summary>
-        public static CommandManagement GetInstance()
+        public static CommandManager GetInstance()
         {
-            return _manager ?? (_manager = new CommandManagement());
+            return _manager ?? (_manager = new CommandManager());
         }
 
         /// <summary>

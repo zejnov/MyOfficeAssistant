@@ -42,9 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assistant.cs" />
+    <Compile Include="Application\Assistant.cs" />
+    <Compile Include="Commands\CommandManager.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\Impl\CommandExit.cs" />
+    <Compile Include="Commands\Impl\CommandHelp.cs" />
+    <Compile Include="Commands\Impl\CommandSample.cs" />
     <Compile Include="ConsoleHelper\Read.cs" />
     <Compile Include="ConsoleHelper\Write.cs" />
+    <Compile Include="Domain\ApplicationState.cs" />
+    <Compile Include="Extensions\AppStateExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,21 +59,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AppFacade\AppFacade.csproj">
-      <Project>{4E35F690-50DE-403B-A9EC-5CE2F529964F}</Project>
-      <Name>AppFacade</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Component.Commands\AppCommands.csproj">
-      <Project>{50BC2EC7-F0D3-46EC-8D87-FE0955050E23}</Project>
-      <Name>AppCommands</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Component.Service.Mail\Component.Service.Mail.csproj">
       <Project>{C78C1ADA-6FFB-4339-A71A-7498524ED1EB}</Project>
       <Name>Component.Service.Mail</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Extensions\Extensions.csproj">
-      <Project>{E8289571-B647-48B6-BCDC-1E3A90616D9C}</Project>
-      <Name>Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

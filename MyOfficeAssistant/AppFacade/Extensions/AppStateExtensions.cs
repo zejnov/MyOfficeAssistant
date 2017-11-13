@@ -1,6 +1,6 @@
-using AppFacade.Domain;
+using Framework.OfficeAssistant.Domain;
 
-namespace Extensions
+namespace Framework.OfficeAssistant.Extensions
 {
     public static class AppStateExtensions
     {

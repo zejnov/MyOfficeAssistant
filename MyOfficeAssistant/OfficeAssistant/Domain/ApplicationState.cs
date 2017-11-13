@@ -1,4 +1,4 @@
-﻿namespace Framework.OfficeAssistant.Domain
+﻿namespace OfficeAssistant.Domain
 {
     public class ApplicationState
     {

@@ -47,5 +47,11 @@
     <Compile Include="Commands\Impl\CommandSample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppFacade\Framework.OfficeAssistant.csproj">
+      <Project>{4e35f690-50de-403b-a9ec-5ce2f529964f}</Project>
+      <Name>Framework.OfficeAssistant</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

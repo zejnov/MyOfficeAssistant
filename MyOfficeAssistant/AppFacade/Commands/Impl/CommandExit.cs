@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AppCommands.Commands.Impl
+namespace Framework.OfficeAssistant.Commands.Impl
 {
     internal class CommandExit : ICommand
     {
@@ -9,8 +9,6 @@ namespace AppCommands.Commands.Impl
         public void Execute()
         {
             Environment.Exit(0);
-            Framework.OfficeAssistant.Domain.Ap
-                
         }
     }
 }

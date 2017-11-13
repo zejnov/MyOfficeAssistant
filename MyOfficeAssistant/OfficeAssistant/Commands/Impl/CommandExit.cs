@@ -1,6 +1,7 @@
-﻿using System;
+﻿using OfficeAssistant.Application;
+using OfficeAssistant.Extensions;
 
-namespace AppCommands.Commands.Impl
+namespace OfficeAssistant.Commands.Impl
 {
     internal class CommandExit : ICommand
     {
@@ -8,9 +9,8 @@ namespace AppCommands.Commands.Impl
         public string HelpInfo => "Exit application";
         public void Execute()
         {
-            Environment.Exit(0);
-            Framework.OfficeAssistant.Domain.Ap
-                
+            var sth = Assistant.GetInstance();
+            sth.IsRunning = false;
         }
     }
 }
