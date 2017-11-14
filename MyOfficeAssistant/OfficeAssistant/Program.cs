@@ -1,12 +1,18 @@
 ﻿using Component.Service.Mail;
 using Component.Service.Mail.Domain;
 using System;
+using OfficeAssistant.Application;
 
 namespace OfficeAssistant
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
+        {
+            new Assistant().Run();
+        }
+
+        public void MailSending()
         {
             var sender = new MailDispatcher();
             var mail = new Email
@@ -20,6 +26,7 @@ namespace OfficeAssistant
 
             Console.Write("mail sended");
             Console.ReadKey();
+
         }
     }
 }

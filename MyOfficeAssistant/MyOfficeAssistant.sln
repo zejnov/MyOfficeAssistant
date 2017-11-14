@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{4F5B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Component.Service.Mail", "Component.Service.Mail\Component.Service.Mail.csproj", "{C78C1ADA-6FFB-4339-A71A-7498524ED1EB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{BB4A1BF2-FCEA-4F40-A82F-B2E1D7F73FAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4F5B0325-868C-43F3-B844-09E6209665E6} = {C924E8FD-41FC-47FF-BFE4-1662E3193232}
 		{C78C1ADA-6FFB-4339-A71A-7498524ED1EB} = {4F5B0325-868C-43F3-B844-09E6209665E6}
+		{BB4A1BF2-FCEA-4F40-A82F-B2E1D7F73FAD} = {C924E8FD-41FC-47FF-BFE4-1662E3193232}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0B593FE2-E22F-4AFA-BE0C-2559E4605569}
