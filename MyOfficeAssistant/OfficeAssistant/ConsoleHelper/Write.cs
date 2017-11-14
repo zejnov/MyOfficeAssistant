@@ -38,5 +38,18 @@ namespace OfficeAssistant.ConsoleHelper
                 }
             }
         }
+
+        public static void PrintAvaibleCommandsHelp(List<ICommand> commands)
+        {
+            int i = 1;
+            Console.Clear();
+            Console.WriteLine("WELCOME TO HELP!");
+            foreach (var command in commands)
+            {
+                Console.WriteLine($"\n{i++}. {command.Name} \t-\t {command.HelpInfo}");
+            }
+            Console.WriteLine("\n\nzjv/2017\n");
+            Read.Wait();
+        }
     }
 }

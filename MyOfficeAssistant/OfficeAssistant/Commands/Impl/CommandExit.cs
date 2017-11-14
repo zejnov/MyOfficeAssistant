@@ -1,5 +1,4 @@
-﻿using OfficeAssistant.Application;
-using OfficeAssistant.Extensions;
+﻿using OfficeAssistant.Domain;
 
 namespace OfficeAssistant.Commands.Impl
 {
@@ -9,8 +8,7 @@ namespace OfficeAssistant.Commands.Impl
         public string HelpInfo => "Exit application";
         public void Execute()
         {
-            var sth = Assistant.GetInstance();
-            sth.IsRunning = false;
+            ApplicationState.IsRunning = false;
         }
     }
 }

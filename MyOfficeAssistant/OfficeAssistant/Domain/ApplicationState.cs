@@ -1,7 +1,7 @@
 ﻿namespace OfficeAssistant.Domain
 {
-    public class ApplicationState
+    public static class ApplicationState
     {
-        public bool IsRunning { get; set; }
+        public static bool IsRunning { get; set; }
     }
 }

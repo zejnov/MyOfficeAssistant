@@ -1,4 +1,7 @@
-﻿namespace OfficeAssistant.Commands.Impl
+﻿using System.Linq;
+using OfficeAssistant.ConsoleHelper;
+
+namespace OfficeAssistant.Commands.Impl
 {
     internal class CommandHelp : ICommand
     {
@@ -6,7 +9,8 @@
         public string HelpInfo => "Printing help informatiosn";
         public void Execute()
         {
-            //WriteHelper.PrintAvaibleCommandsHelp();
+            var commands = CommandManager.GetInstance().GetAvaibleCommands().ToList();
+            Write.PrintAvaibleCommandsHelp(commands);
         }
     }
 }

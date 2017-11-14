@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using OfficeAssistant.Commands;
 using OfficeAssistant.ConsoleHelper;
 using OfficeAssistant.Domain;
@@ -8,7 +10,6 @@ namespace OfficeAssistant.Application
 {
     public class Assistant
     {
-        public ApplicationState AppState { get; set; }
         public bool IsRunning { get; set; }
         private static Assistant _officeAssistant { get; set; }
         private readonly CommandManager _commandManager = CommandManager.GetInstance();
@@ -20,10 +21,7 @@ namespace OfficeAssistant.Application
 
         public Assistant()
         {
-            if (AppState != null) return;
-            AppState = new ApplicationState();
-            AppState.SetToRunning();
-            IsRunning = true;
+            ApplicationState.IsRunning = true;
         }
 
         public void Run()
@@ -39,7 +37,7 @@ namespace OfficeAssistant.Application
                     Console.WriteLine(e);
                     throw;
                 }
-            } while (IsRunning);
+            } while (ApplicationState.IsRunning);
         }
 
         private void SimpleMenu()
@@ -51,7 +49,7 @@ namespace OfficeAssistant.Application
             Console.WriteLine($"{choosenCommand} <- selected"); //todo temp
 
             _commandManager.Execute(choosenCommand);
-            Read.Wait();
+            //Read.Wait();
         }
     }
 }

@@ -32,7 +32,11 @@ namespace OfficeAssistant.Commands
         /// </summary>
         public static CommandManager GetInstance()
         {
-            return _manager ?? (_manager = new CommandManager());
+            if (_manager == null)
+            {
+                _manager = new CommandManager();
+            }
+            return _manager;
         }
 
         /// <summary>
@@ -41,6 +45,14 @@ namespace OfficeAssistant.Commands
         public IEnumerable<string> GetAvaibleCommandNames()
         {
             return _applicationCommands.Select(c => c.Name);
+        }
+
+        /// <summary>
+        /// getting command from list
+        /// </summary>
+        public IEnumerable<ICommand> GetAvaibleCommands()
+        {
+            return _applicationCommands;
         }
 
         /// <summary>
