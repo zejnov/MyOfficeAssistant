@@ -1,9 +1,6 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
-using OfficeAssistant.Commands.Impl;
-using OfficeAssistant.ConsoleHelper;
 
 namespace OfficeAssistant.Commands
 {
