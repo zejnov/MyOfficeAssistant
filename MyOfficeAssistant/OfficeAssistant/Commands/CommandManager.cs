@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.CodeDom;
+using System.Collections.Generic;
 using System.Linq;
 using OfficeAssistant.Commands.Impl;
+using OfficeAssistant.ConsoleHelper;
 
 namespace OfficeAssistant.Commands
 {
@@ -14,17 +17,24 @@ namespace OfficeAssistant.Commands
         /// </summary>
         public CommandManager()
         {
-            AddNativeOperations(); //usunąć konstruktor
+           AddOperations();
         }
-
+        
         /// <summary>
-        /// add commands there
+        /// add commands from 'reflection'
         /// </summary>
-        private void AddNativeOperations()
+        private void AddOperations()
         {
-            _applicationCommands.Add(new CommandExit());
-            _applicationCommands.Add(new CommandHelp());
-            _applicationCommands.Add(new CommandSample());
+            var icommands = System.Reflection.Assembly.GetExecutingAssembly()
+                .GetTypes()
+                .Where(mytype => mytype.GetInterfaces()
+                    .Contains(typeof(ICommand))
+                    );
+
+            foreach (var mytype in icommands)
+            {
+                _applicationCommands.Add(Activator.CreateInstance(mytype) as ICommand);
+            }
         }
 
         /// <summary>
@@ -32,11 +42,7 @@ namespace OfficeAssistant.Commands
         /// </summary>
         public static CommandManager GetInstance()
         {
-            if (_manager == null)
-            {
-                _manager = new CommandManager();
-            }
-            return _manager;
+            return _manager ?? (_manager = new CommandManager());
         }
 
         /// <summary>

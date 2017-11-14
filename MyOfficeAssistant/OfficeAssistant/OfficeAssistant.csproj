@@ -47,6 +47,7 @@
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\Impl\CommandExit.cs" />
     <Compile Include="Commands\Impl\CommandHelp.cs" />
+    <Compile Include="Commands\Impl\CommandGameMenu.cs" />
     <Compile Include="Commands\Impl\CommandSample.cs" />
     <Compile Include="ConsoleHelper\Read.cs" />
     <Compile Include="ConsoleHelper\Write.cs" />
