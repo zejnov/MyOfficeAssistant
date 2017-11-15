@@ -12,14 +12,15 @@ namespace OfficeAssistant.Commands.Impl
             Console.WriteLine("Ssssample");
 
             var handler = new ArrowsHandling();
-            var touple = handler.GetValidHighligthMove(5, 7, 10, 10);
+            var tuple = new Tuple<int,int>(5,5);
 
-            for (int i = 0; i < 5; i++)  //just testss
+
+            for (int i = 0; i < 111; i++)
             {
-                touple = handler.GetValidHighligthMove(5, 7,10,10);
-                
+                tuple = handler.GetValidHighligthMove(tuple.Item1, tuple.Item2, 10, 10);
+                Console.WriteLine($"{tuple.Item1}  and {tuple.Item2}");
             }
-            Console.WriteLine($"{touple.Item1}  and {touple.Item2}");
+            
             Console.ReadKey();
         }
     }
