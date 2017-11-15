@@ -51,6 +51,7 @@
     <Compile Include="Commands\Impl\CommandSample.cs" />
     <Compile Include="ConsoleHelper\ArrowsHandling.cs" />
     <Compile Include="ConsoleHelper\AssistantEnums.cs" />
+    <Compile Include="ConsoleHelper\GraphicMenu.cs" />
     <Compile Include="ConsoleHelper\Read.cs" />
     <Compile Include="ConsoleHelper\Write.cs" />
     <Compile Include="Domain\ApplicationState.cs" />

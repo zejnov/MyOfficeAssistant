@@ -51,5 +51,10 @@ namespace OfficeAssistant.ConsoleHelper
             Console.WriteLine("\n\nzjv/2017\n");
             Read.Wait();
         }
+
+        public static void Enter()
+        {
+            Console.Write("\n");
+        }
     }
 }

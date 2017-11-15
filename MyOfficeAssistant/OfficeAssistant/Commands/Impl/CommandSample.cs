@@ -1,14 +1,18 @@
 ﻿using System;
+using OfficeAssistant.ConsoleHelper;
 
 namespace OfficeAssistant.Commands.Impl
 {
     public class CommandSample : ICommand
     {
-        public string Name => "Sample";
+        public string Name => "s";
         public string HelpInfo => "Doing sample stuff";
         public void Execute()
         {
-            Console.WriteLine("Ssssample");
+            var menu = new GraphicMenu();
+            Console.Clear();
+            menu.PrintMenu();
+
             Console.ReadKey();
         }
     }
