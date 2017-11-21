@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using OfficeAssistant.ConsoleHelper;
 
 namespace OfficeAssistant.Commands.Impl
@@ -11,11 +12,15 @@ namespace OfficeAssistant.Commands.Impl
 
         public void Execute()
         {
-            var menu = new GraphicMenu();
-            Console.Clear();
-            var list = CommandManager.GetInstance().GetAvaibleCommands();
+            var list = CommandManager.GetInstance().GetAvaibleCommands().ToList();
 
-            menu.PrintMenu(list);
+            var menu = new GraphicMenu(list);
+            Console.Clear();
+
+
+
+
+            menu.PrintMenu();
 
             Console.ReadKey();
         }

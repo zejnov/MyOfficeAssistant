@@ -7,13 +7,22 @@ namespace OfficeAssistant.ConsoleHelper
 {
     public class GraphicMenu
     {
-        public void PrintMenu(IEnumerable<ICommand> list)
+        private List<ICommand> _list;
+
+        public GraphicMenu(List<ICommand> list)
+        {
+            this._list = list;
+        }
+
+        public void PrintMenu()
         {
             PrintHeader("Menu name");
-            PrintMenuOptions(list.ToList());
+            PrintMenuOptions(_list.ToList());
+            //print optionals info
             PrintHorizontalLine(61, true);
         }
 
+        //********************************** OPTIONS ******************************
         private void PrintMenuOptions(List<ICommand> list, int size = 61)
         {
             var options = list.Count;
@@ -41,7 +50,7 @@ namespace OfficeAssistant.ConsoleHelper
         {
             Write.Enter();
 
-            for (int option = 0; option < optionsInLine; option++)
+            for (var option = 0; option < optionsInLine; option++)
             {
                 Write.Vertical();
                 PrintOption(dataLine[option]);
@@ -78,15 +87,13 @@ namespace OfficeAssistant.ConsoleHelper
         }
 
         //********************************** HEADER ******************************
-
         private void PrintHeader(string menuName, int size = 61)
         {
             PrintnumerousLine(size);
             PrintHorizontalLine(size, true);
-            PrintHeaderNameLine(size, menuName);
+            PrintStringInLine(size, menuName);
             PrintHorizontalLine(size);
             PrintHorizontalLine(size, true);
-
         }
 
         private void PrintnumerousLine(int size)  //just temp
@@ -97,7 +104,7 @@ namespace OfficeAssistant.ConsoleHelper
             }
         }
 
-        private void PrintHeaderNameLine(int x, string menuName)
+        private void PrintStringInLine(int x, string menuName)
         {
             var freeSpace = x - 2 - menuName.Length;
             var spaceSize = freeSpace / 2;
