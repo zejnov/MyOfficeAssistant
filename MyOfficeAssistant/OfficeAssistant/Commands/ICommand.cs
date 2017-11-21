@@ -4,6 +4,7 @@
     {
         string Name { get; }
         string HelpInfo { get; }
+        bool IsHighlighted { get; set; }
         void Execute();
     }
 }

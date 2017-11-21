@@ -7,6 +7,8 @@ namespace OfficeAssistant.Commands.Impl
     {
         public string Name => "g";
         public string HelpInfo => "Doing sample stuff";
+        public bool IsHighlighted { get; set; }
+
         public void Execute()
         {
             Console.WriteLine("Ssssample");

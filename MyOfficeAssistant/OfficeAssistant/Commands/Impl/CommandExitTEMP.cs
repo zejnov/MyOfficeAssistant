@@ -2,15 +2,11 @@
 
 namespace OfficeAssistant.Commands.Impl
 {
-    internal class CommandExit : ICommand
+    internal class CommandExitTEMP : ICommand
     {
-        public string Name => "Exit";
+        public string Name => "Exittt";
         public string HelpInfo => "Exit application";
-        public bool IsHighlighted
-        {
-            get => true;
-            set => IsHighlighted = value;
-        }
+        public bool IsHighlighted { get; set; }
 
         public void Execute()
         {

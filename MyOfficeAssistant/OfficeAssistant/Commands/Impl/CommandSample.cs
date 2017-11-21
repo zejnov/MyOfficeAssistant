@@ -7,11 +7,15 @@ namespace OfficeAssistant.Commands.Impl
     {
         public string Name => "s";
         public string HelpInfo => "Doing sample stuff";
+        public bool IsHighlighted { get; set; }
+
         public void Execute()
         {
             var menu = new GraphicMenu();
             Console.Clear();
-            menu.PrintMenu();
+            var list = CommandManager.GetInstance().GetAvaibleCommands();
+
+            menu.PrintMenu(list);
 
             Console.ReadKey();
         }

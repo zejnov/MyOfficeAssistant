@@ -7,6 +7,8 @@ namespace OfficeAssistant.Commands.Impl
     {
         public string Name => "Help";
         public string HelpInfo => "Printing help informatiosn";
+        public bool IsHighlighted { get; set; }
+
         public void Execute()
         {
             var commands = CommandManager.GetInstance().GetAvaibleCommands().ToList();

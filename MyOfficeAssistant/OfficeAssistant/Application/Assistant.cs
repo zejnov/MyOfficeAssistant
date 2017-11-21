@@ -4,7 +4,6 @@ using System.Linq;
 using OfficeAssistant.Commands;
 using OfficeAssistant.ConsoleHelper;
 using OfficeAssistant.Domain;
-using OfficeAssistant.Extensions;
 
 namespace OfficeAssistant.Application
 {
@@ -35,7 +34,7 @@ namespace OfficeAssistant.Application
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
-                    throw;
+                    //throw;
                 }
             } while (ApplicationState.IsRunning);
         }
