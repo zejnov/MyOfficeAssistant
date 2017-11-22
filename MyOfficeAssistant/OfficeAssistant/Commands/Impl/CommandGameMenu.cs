@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using OfficeAssistant.ConsoleHelper;
+using OfficeAssistant.Domain;
 
 namespace OfficeAssistant.Commands.Impl
 {
@@ -30,12 +31,16 @@ namespace OfficeAssistant.Commands.Impl
 
             var commandsArray = MenuManager.GenerateCommandsArray(list,  4);
             
-            while (true)
+            while (ApplicationState.IsRunning)
             {
                 Console.Clear();
                 MenuManager.ExecuteMenuMove(commandsArray, tuple);
                 GraphicMenu.PrintMenu(commandsArray);
-                tuple = ArrowsHandling.GetValidHighligthMove(tuple.Item1, tuple.Item2, 4, 2);
+                tuple = ArrowsHandling.GetValidHighligthMove(tuple.Item1, tuple.Item2, 4, 2, out var isExecution);
+                if (isExecution)
+                {
+                    list.FirstOrDefault(c => c.IsHighlighted).Execute();
+                }
             }
         }
     }

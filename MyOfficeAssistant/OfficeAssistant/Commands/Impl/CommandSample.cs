@@ -6,7 +6,7 @@ namespace OfficeAssistant.Commands.Impl
 {
     public class CommandSample : ICommand
     {
-        public string Name => "s";
+        public string Name => "abcdefghijklmnoprst";
         public string Command => Name;
         public string HelpInfo => "Doing sample stuff";
         public bool IsHighlighted { get; set; }

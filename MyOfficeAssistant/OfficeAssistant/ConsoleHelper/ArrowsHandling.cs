@@ -4,12 +4,12 @@ namespace OfficeAssistant.ConsoleHelper
 {
     public class ArrowsHandling
     {
-        public Tuple<int, int> GetValidHighligthMove(int horizontal, int vertical, int width, int height)
+        public Tuple<int, int> GetValidHighligthMove(int horizontal, int vertical, int width, int height, out bool isExecution)
         {
             var arrowKey = ReadArrowDirection();
             arrowKey = Validate(arrowKey,horizontal,vertical,width,height);
-            var result = ExecuteArrowKey(horizontal, vertical, arrowKey);
-            
+            var result = ExecuteArrowKey(horizontal, vertical, arrowKey, out isExecution);
+
             return new Tuple<int, int>(result.Item1, result.Item2);
         }
 
@@ -18,6 +18,7 @@ namespace OfficeAssistant.ConsoleHelper
             switch (arrowDirection)
             {
                 case AssistantEnums.ArrowDirections.None:
+                case AssistantEnums.ArrowDirections.Execute:
                     break;
                 case AssistantEnums.ArrowDirections.Left:
                     if (horizontal <= 0)
@@ -41,8 +42,9 @@ namespace OfficeAssistant.ConsoleHelper
             return arrowDirection;
         }
 
-        private Tuple<int, int> ExecuteArrowKey(int horizontal, int vertical, AssistantEnums.ArrowDirections arrowKey)
+        private Tuple<int, int> ExecuteArrowKey(int horizontal, int vertical, AssistantEnums.ArrowDirections arrowKey, out bool isExecution)
         {
+            isExecution = false;
             switch (arrowKey)
             {
                 case AssistantEnums.ArrowDirections.None:
@@ -58,6 +60,9 @@ namespace OfficeAssistant.ConsoleHelper
                     break;
                 case AssistantEnums.ArrowDirections.Down:
                     vertical++;
+                    break;
+                case AssistantEnums.ArrowDirections.Execute:
+                    isExecution = true;
                     break;
             }
             return new Tuple<int, int>(horizontal, vertical);
@@ -80,6 +85,9 @@ namespace OfficeAssistant.ConsoleHelper
 
                 case ConsoleKey.DownArrow:
                     return AssistantEnums.ArrowDirections.Down;
+
+                case ConsoleKey.Enter:
+                    return AssistantEnums.ArrowDirections.Execute;
             }
             return AssistantEnums.ArrowDirections.None;
         }

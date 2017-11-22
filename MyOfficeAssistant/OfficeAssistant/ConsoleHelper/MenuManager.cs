@@ -6,7 +6,7 @@ namespace OfficeAssistant.ConsoleHelper
 {
     public class MenuManager
     {
-        public void ExecuteMenuMove(IHighlighted[][] commandsArray, Tuple<int, int> tuple)
+        public void ExecuteMenuMove(ICommand[][] commandsArray, Tuple<int, int> tuple)
         {
             if (commandsArray[tuple.Item2][tuple.Item1] == null)
                 return;
@@ -15,7 +15,7 @@ namespace OfficeAssistant.ConsoleHelper
             commandsArray[tuple.Item2][tuple.Item1].IsHighlighted = true;
         }
 
-        private void ClearAllHiglihgts(IHighlighted[][] commandsArray, int rows, int columns)
+        private void ClearAllHiglihgts(ICommand[][] commandsArray, int rows, int columns)
         {
             for (var row = 0; row < rows; row++)
             {
@@ -51,7 +51,7 @@ namespace OfficeAssistant.ConsoleHelper
         private ICommand[][] GenerateEmptyArray(int rows, int size)
         {
             var array = new ICommand[rows][];
-            for (int row = 0; row < rows; row++)
+            for (var row = 0; row < rows; row++)
             {
                 array[row] = new ICommand[size];
             }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using OfficeAssistant.Commands;
 
 namespace OfficeAssistant.ConsoleHelper
@@ -42,6 +40,8 @@ namespace OfficeAssistant.ConsoleHelper
                 Write.Space(optionSize);
                 return;
             }
+            
+            var commandToPrint = command.Name.Length > optionSize ? command.Name.Remove(optionSize) : command.Name;
 
             var freeSpace = optionSize - command.Name.Length;
             var spaceSize = freeSpace / 2;
@@ -53,7 +53,7 @@ namespace OfficeAssistant.ConsoleHelper
             }
 
             Write.Space(spaceSize);
-            Console.Write($"{command.Name}");
+            Console.Write($"{commandToPrint}");
             
             if (freeSpace % 2 != 0)
                 spaceSize++;

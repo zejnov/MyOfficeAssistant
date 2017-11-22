@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using OfficeAssistant.Commands;
 using OfficeAssistant.ConsoleHelper;
@@ -12,6 +11,14 @@ namespace OfficeAssistant.Application
         public bool IsRunning { get; set; }
         private static Assistant _officeAssistant { get; set; }
         private readonly CommandManager _commandManager = CommandManager.GetInstance();
+        private ArrowsHandling _arrowsHandling { get; set; }
+        private GraphicMenu _graphicMenu { get; set; }
+        private MenuManager _menuManager { get; set; }
+
+        public MenuManager MenuManager => _menuManager ?? (_menuManager = new MenuManager());
+        public GraphicMenu GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu());
+        public ArrowsHandling ArrowsHandling => _arrowsHandling ?? (_arrowsHandling = new ArrowsHandling());
+
 
         public static Assistant GetInstance()
         {
@@ -25,30 +32,54 @@ namespace OfficeAssistant.Application
 
         public void Run()
         {
+            try
+            {
+                //SimpleMenu();
+                ExtraMenu();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        
+        private void ExtraMenu()
+        {
+            var tuple = new Tuple<int, int>(0, 0);
+
+            var list = _commandManager
+                .GetAvaibleCommands()
+                .OrderBy(c => c.Name)
+                .ToList();
+
+            var commandsArray = MenuManager.GenerateCommandsArray(list, 4);
             do
             {
-                try
+                Console.Clear();
+                MenuManager.ExecuteMenuMove(commandsArray, tuple);
+                GraphicMenu.PrintMenu(commandsArray);
+                tuple = ArrowsHandling.GetValidHighligthMove(tuple.Item1, tuple.Item2, 4, 2, out var isExecution);
+                if (isExecution)
                 {
-                    SimpleMenu();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
+                    list.FirstOrDefault(c => c.IsHighlighted)?.Execute();
                 }
             } while (ApplicationState.IsRunning);
         }
 
         private void SimpleMenu()
         {
-            var commands = _commandManager.GetAvaibleCommandNames();
-            Write.Commands(commands);
+            do
+            {
+                var commands = _commandManager.GetAvaibleCommandNames();
+                Write.Commands(commands);
 
-            var choosenCommand = Read.GetCommandFromuser(commands);
-            Console.WriteLine($"{choosenCommand} <- selected"); //todo temp
+                var choosenCommand = Read.GetCommandFromuser(commands);
+                Console.WriteLine($"{choosenCommand} <- selected"); //todo temp
 
-            _commandManager.Execute(choosenCommand);
-            //Read.Wait();
+                _commandManager.Execute(choosenCommand);
+
+            } while (ApplicationState.IsRunning);
         }
     }
 }
