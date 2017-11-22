@@ -34,7 +34,7 @@ namespace OfficeAssistant.Application
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
-                    //throw;
+                    throw;
                 }
             } while (ApplicationState.IsRunning);
         }

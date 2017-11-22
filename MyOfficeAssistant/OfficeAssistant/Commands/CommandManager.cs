@@ -30,7 +30,9 @@ namespace OfficeAssistant.Commands
 
             foreach (var mytype in icommands)
             {
-                _applicationCommands.Add(Activator.CreateInstance(mytype) as ICommand);
+                var command = Activator.CreateInstance(mytype) as ICommand;
+                if (string.IsNullOrEmpty(command?.Name)) continue;
+                _applicationCommands.Add(command);
             }
         }
 
@@ -47,7 +49,7 @@ namespace OfficeAssistant.Commands
         /// </summary>
         public IEnumerable<string> GetAvaibleCommandNames()
         {
-            return _applicationCommands.Select(c => c.Name);
+            return _applicationCommands.Select(c => c.Command);
         }
 
         /// <summary>
@@ -64,7 +66,7 @@ namespace OfficeAssistant.Commands
         public void Execute(string choosenCommand)
         {
             _applicationCommands
-                .SingleOrDefault(c => c.Name == choosenCommand)?
+                .SingleOrDefault(c => c.Command == choosenCommand)?
                 .Execute();
         }
 
@@ -73,7 +75,7 @@ namespace OfficeAssistant.Commands
         /// </summary>
         public bool Exist(string commandName)
         {
-            var command = _applicationCommands.FirstOrDefault(c => c.Name == commandName);
+            var command = _applicationCommands.FirstOrDefault(c => c.Command == commandName);
             return command != null;
         }
     }

@@ -7,59 +7,36 @@ namespace OfficeAssistant.ConsoleHelper
 {
     public class GraphicMenu
     {
-        private List<ICommand> _list;
-
-        public GraphicMenu(List<ICommand> list)
-        {
-            this._list = list;
-        }
-
-        public void PrintMenu()
+        public void PrintMenu(ICommand[][] commandsArray)
         {
             PrintHeader("Menu name");
-            PrintMenuOptions(_list.ToList());
+            PrintMenuOptions(commandsArray);
             //print optionals info
             PrintHorizontalLine(61, true);
         }
 
         //********************************** OPTIONS ******************************
-        private void PrintMenuOptions(List<ICommand> list, int size = 61)
+        private void PrintMenuOptions(ICommand[][] commandsArray, int size = 61)
         {
-            var options = list.Count;
-            var rows = options / 4;
-            if (options %4 !=0)
-                rows++;
+            var rows = 2;
+            var columns = 4;
 
             for (var row = 0; row < rows; row++)
             {
-                var dataLine = new List<ICommand>();
-
-                for (var i = 0; i < 4; i++)
+                Write.Enter();
+                for (var column = 0; column < columns; column++)
                 {
-                    var calculatedIndex = row + i + 3 * row;
-
-                    dataLine.Add(calculatedIndex < options ? list[calculatedIndex] : null);
+                    PrintOption(commandsArray[row][column]);
                 }
-
-                PrintOptionsLine(dataLine);
+                Write.Vertical();
                 PrintHorizontalLine(size,true);
             }
         }
 
-        private void PrintOptionsLine(List<ICommand> dataLine, int optionsInLine = 4)
-        {
-            Write.Enter();
-
-            for (var option = 0; option < optionsInLine; option++)
-            {
-                Write.Vertical();
-                PrintOption(dataLine[option]);
-            }
-            Write.Vertical();
-        }
-
         private void PrintOption(ICommand command, int optionSize = 14)
         {
+            Write.Vertical();
+
             if (command == null)
             {
                 Write.Space(optionSize);

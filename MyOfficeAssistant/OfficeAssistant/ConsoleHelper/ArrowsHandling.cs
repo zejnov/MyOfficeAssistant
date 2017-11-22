@@ -20,11 +20,11 @@ namespace OfficeAssistant.ConsoleHelper
                 case AssistantEnums.ArrowDirections.None:
                     break;
                 case AssistantEnums.ArrowDirections.Left:
-                    if (horizontal == 0)
+                    if (horizontal <= 0)
                         return AssistantEnums.ArrowDirections.None;
                     break;
                 case AssistantEnums.ArrowDirections.Right:
-                    if (horizontal == width - 1)
+                    if (horizontal >= width - 1)
                         return AssistantEnums.ArrowDirections.None;
                     break;
                 case AssistantEnums.ArrowDirections.Up:

@@ -5,6 +5,7 @@ namespace OfficeAssistant.Commands.Impl
     internal class CommandExitTEMP : ICommand
     {
         public string Name => "Exittt";
+        public string Command => Name;
         public string HelpInfo => "Exit application";
         public bool IsHighlighted { get; set; }
 

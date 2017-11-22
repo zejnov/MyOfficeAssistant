@@ -1,10 +1,9 @@
 ﻿namespace OfficeAssistant.Commands
 {
-    public interface ICommand
+    public interface ICommand : IHighlighted
     {
-        string Name { get; }
+        string Command { get; }
         string HelpInfo { get; }
-        bool IsHighlighted { get; set; }
         void Execute();
     }
 }
