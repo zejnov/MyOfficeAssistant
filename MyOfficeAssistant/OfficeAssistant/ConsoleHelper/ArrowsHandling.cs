@@ -4,17 +4,13 @@ namespace OfficeAssistant.ConsoleHelper
 {
     public class ArrowsHandling
     {
-        public Tuple<int, int> GetValidHighligthMove(int horizontal, int vertical, int width, int height)
+        public Tuple<int, int> GetValidHighligthMove(int horizontal, int vertical, int width, int height, out bool isExecution)
         {
-            var inputCoordinates = new Tuple<int, int>(horizontal,vertical);
-            var inputSize = new Tuple<int, int>(width,height);
             var arrowKey = ReadArrowDirection();
-
             arrowKey = Validate(arrowKey,horizontal,vertical,width,height);
+            var result = ExecuteArrowKey(horizontal, vertical, arrowKey, out isExecution);
 
-            var result = ExecuteArrowKey(horizontal, vertical, arrowKey);
-            
-            return new Tuple<int, int>(horizontal, vertical);
+            return new Tuple<int, int>(result.Item1, result.Item2);
         }
 
         public static AssistantEnums.ArrowDirections Validate(AssistantEnums.ArrowDirections arrowDirection, int horizontal, int vertical, int width, int height)
@@ -22,29 +18,33 @@ namespace OfficeAssistant.ConsoleHelper
             switch (arrowDirection)
             {
                 case AssistantEnums.ArrowDirections.None:
+                case AssistantEnums.ArrowDirections.Execute:
                     break;
                 case AssistantEnums.ArrowDirections.Left:
-                    if (horizontal == 0)
+                    if (horizontal <= 0)
                         return AssistantEnums.ArrowDirections.None;
                     break;
                 case AssistantEnums.ArrowDirections.Right:
-                    if (horizontal == width - 1)
+                    if (horizontal >= width - 1)
                         return AssistantEnums.ArrowDirections.None;
                     break;
                 case AssistantEnums.ArrowDirections.Up:
-                    if (vertical == 0)
+                    if (vertical <= 0)
                         return AssistantEnums.ArrowDirections.None;
                     break;
                 case AssistantEnums.ArrowDirections.Down:
-                    if (vertical == height - 1)
+                    if (vertical >= height - 1)
                         return AssistantEnums.ArrowDirections.None;
                     break;
+                default:
+                    return AssistantEnums.ArrowDirections.None;
             }
-            return AssistantEnums.ArrowDirections.None;
+            return arrowDirection;
         }
 
-        private Tuple<int, int> ExecuteArrowKey(int horizontal, int vertical, AssistantEnums.ArrowDirections arrowKey)
+        private Tuple<int, int> ExecuteArrowKey(int horizontal, int vertical, AssistantEnums.ArrowDirections arrowKey, out bool isExecution)
         {
+            isExecution = false;
             switch (arrowKey)
             {
                 case AssistantEnums.ArrowDirections.None:
@@ -56,10 +56,13 @@ namespace OfficeAssistant.ConsoleHelper
                     horizontal++;
                     break;
                 case AssistantEnums.ArrowDirections.Up:
-                    vertical++;
+                    vertical--;
                     break;
                 case AssistantEnums.ArrowDirections.Down:
-                    vertical--;
+                    vertical++;
+                    break;
+                case AssistantEnums.ArrowDirections.Execute:
+                    isExecution = true;
                     break;
             }
             return new Tuple<int, int>(horizontal, vertical);
@@ -82,6 +85,9 @@ namespace OfficeAssistant.ConsoleHelper
 
                 case ConsoleKey.DownArrow:
                     return AssistantEnums.ArrowDirections.Down;
+
+                case ConsoleKey.Enter:
+                    return AssistantEnums.ArrowDirections.Execute;
             }
             return AssistantEnums.ArrowDirections.None;
         }

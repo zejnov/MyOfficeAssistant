@@ -9,6 +9,7 @@
             Right,
             Up,
             Down,
+            Execute,
         }
     }
 }

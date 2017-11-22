@@ -45,12 +45,16 @@
     <Compile Include="Application\Assistant.cs" />
     <Compile Include="Commands\CommandManager.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\IHighlighted.cs" />
+    <Compile Include="Commands\Impl\CommandExitTEMP.cs" />
     <Compile Include="Commands\Impl\CommandExit.cs" />
     <Compile Include="Commands\Impl\CommandHelp.cs" />
     <Compile Include="Commands\Impl\CommandGameMenu.cs" />
     <Compile Include="Commands\Impl\CommandSample.cs" />
     <Compile Include="ConsoleHelper\ArrowsHandling.cs" />
     <Compile Include="ConsoleHelper\AssistantEnums.cs" />
+    <Compile Include="ConsoleHelper\GraphicMenu.cs" />
+    <Compile Include="ConsoleHelper\MenuManager.cs" />
     <Compile Include="ConsoleHelper\Read.cs" />
     <Compile Include="ConsoleHelper\Write.cs" />
     <Compile Include="Domain\ApplicationState.cs" />
