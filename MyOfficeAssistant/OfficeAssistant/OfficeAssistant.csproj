@@ -58,6 +58,7 @@
     <Compile Include="ConsoleHelper\Read.cs" />
     <Compile Include="ConsoleHelper\Write.cs" />
     <Compile Include="Domain\ApplicationState.cs" />
+    <Compile Include="Domain\GraphicMenuParameters.cs" />
     <Compile Include="Extensions\AppStateExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

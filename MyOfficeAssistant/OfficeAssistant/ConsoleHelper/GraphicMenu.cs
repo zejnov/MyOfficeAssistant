@@ -1,5 +1,6 @@
 ﻿using System;
 using OfficeAssistant.Commands;
+using OfficeAssistant.Domain;
 
 namespace OfficeAssistant.ConsoleHelper
 {
@@ -7,6 +8,13 @@ namespace OfficeAssistant.ConsoleHelper
     {
         public void PrintMenu(ICommand[][] commandsArray)
         {
+            var parameters = new GraphicMenuParameters()
+            {
+                Columns = 4,
+                ColunmWidth = 14,
+            };
+            
+
             PrintHeader("Menu name");
             PrintMenuOptions(commandsArray);
             //print optionals info
