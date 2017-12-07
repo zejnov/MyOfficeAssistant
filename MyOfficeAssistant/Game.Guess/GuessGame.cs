@@ -64,7 +64,7 @@ namespace Game.GuessGame
                         Console.WriteLine("Out of rangne, please try <0,1000>");
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.WriteLine("Bad entry, please try again");
                 }

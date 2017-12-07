@@ -6,7 +6,7 @@ namespace OfficeAssistant.Commands
 {
     public class CommandManager
     {
-        private readonly List<ICommand> _applicationCommands = new List<ICommand>();
+        private readonly List<ICommand> _avaibleCommands = new List<ICommand>();
         private static CommandManager _manager;
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace OfficeAssistant.Commands
             {
                 var command = Activator.CreateInstance(mytype) as ICommand;
                 if (string.IsNullOrEmpty(command?.Name)) continue;
-                _applicationCommands.Add(command);
+                _avaibleCommands.Add(command);
             }
         }
 
@@ -49,7 +49,7 @@ namespace OfficeAssistant.Commands
         /// </summary>
         public IEnumerable<string> GetAvaibleCommandNames()
         {
-            return _applicationCommands.Select(c => c.Command);
+            return _avaibleCommands.Select(c => c.Command);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace OfficeAssistant.Commands
         /// </summary>
         public IEnumerable<ICommand> GetAvaibleCommands()
         {
-            return _applicationCommands;
+            return _avaibleCommands;
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace OfficeAssistant.Commands
         /// </summary>
         public void Execute(string choosenCommand)
         {
-            _applicationCommands
+            _avaibleCommands
                 .SingleOrDefault(c => c.Command == choosenCommand)?
                 .Execute();
         }
@@ -75,7 +75,7 @@ namespace OfficeAssistant.Commands
         /// </summary>
         public bool Exist(string commandName)
         {
-            var command = _applicationCommands.FirstOrDefault(c => c.Command == commandName);
+            var command = _avaibleCommands.FirstOrDefault(c => c.Command == commandName);
             return command != null;
         }
     }

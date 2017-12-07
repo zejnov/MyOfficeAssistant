@@ -46,6 +46,7 @@
     <Compile Include="Application\Maras.cs" />
     <Compile Include="Application\Maras2.cs" />
     <Compile Include="Commands\CommandManager.cs" />
+    <Compile Include="Commands\Impl\CommandTicTacToe.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\IHighlighted.cs" />
     <Compile Include="Commands\Impl\CommandGuessGame.cs" />
@@ -77,6 +78,10 @@
     <ProjectReference Include="..\Game.Guess\Game.GuessGame.csproj">
       <Project>{4CB8C8FE-19B2-4971-AA12-9568CD182125}</Project>
       <Name>Game.GuessGame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Game.TicTacToe\Game.TicTacToe.csproj">
+      <Project>{4979E546-1CC4-4CE5-9C83-5B5BA953C98E}</Project>
+      <Name>Game.TicTacToe</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -27,8 +27,6 @@ namespace OfficeAssistant.Application
 
         public int Solution(int a, int b)
         {
-            var result = 0;
-
             var stringA = a.ToString();
             var stringB = b.ToString();
 
