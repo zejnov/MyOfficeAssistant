@@ -47,7 +47,6 @@
     <Compile Include="Application\Maras2.cs" />
     <Compile Include="Commands\CommandManager.cs" />
     <Compile Include="Commands\Impl\CommandTicTacToe.cs" />
-    <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\Impl\CommandGuessGame.cs" />
     <Compile Include="Commands\Impl\CommandMaras.cs" />
     <Compile Include="Commands\Impl\CommandExit.cs" />

@@ -1,4 +1,6 @@
 ﻿using Game.TicTacToe;
+using InteractiveGraphicMenu;
+using InteractiveGraphicMenu.Interfaces;
 
 namespace OfficeAssistant.Commands.Impl
 {

@@ -1,6 +1,4 @@
-﻿using InteractiveGraphicMenu;
-
-namespace OfficeAssistant.Commands
+﻿namespace InteractiveGraphicMenu.Interfaces
 {
     public interface ICommand : IHighlighted
     {

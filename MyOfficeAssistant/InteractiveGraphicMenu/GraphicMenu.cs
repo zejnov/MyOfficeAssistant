@@ -1,5 +1,7 @@
 ﻿using System;
+using InteractiveGraphicMenu.Domain;
 using InteractiveGraphicMenu.Helpers;
+using InteractiveGraphicMenu.Interfaces;
 
 namespace InteractiveGraphicMenu
 {
@@ -12,7 +14,7 @@ namespace InteractiveGraphicMenu
                 Columns = 4,
                 ColunmWidth = 14,
             };
-            
+            //TODO make use of params
 
             PrintHeader("Menu name");
             PrintMenuOptions(commandsArray);

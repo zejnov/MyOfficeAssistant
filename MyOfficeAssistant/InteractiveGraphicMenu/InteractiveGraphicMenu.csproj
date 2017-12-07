@@ -41,11 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GraphicMenu.cs" />
-    <Compile Include="GraphicMenuParameters.cs" />
+    <Compile Include="Domain\GraphicMenuParameters.cs" />
     <Compile Include="Helpers\ArrowsHandling.cs" />
     <Compile Include="Helpers\AssistantEnums.cs" />
     <Compile Include="Helpers\Write.cs" />
-    <Compile Include="IHighlighted.cs" />
+    <Compile Include="Interfaces\ICommand.cs" />
+    <Compile Include="Interfaces\IHighlighted.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="MenuManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

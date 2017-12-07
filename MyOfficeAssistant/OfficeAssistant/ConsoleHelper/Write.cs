@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using InteractiveGraphicMenu;
+using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.Commands;
 
 namespace OfficeAssistant.ConsoleHelper

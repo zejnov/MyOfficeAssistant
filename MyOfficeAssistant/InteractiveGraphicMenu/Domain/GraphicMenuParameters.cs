@@ -1,4 +1,4 @@
-﻿namespace InteractiveGraphicMenu
+﻿namespace InteractiveGraphicMenu.Domain
 {
     public class GraphicMenuParameters
     {

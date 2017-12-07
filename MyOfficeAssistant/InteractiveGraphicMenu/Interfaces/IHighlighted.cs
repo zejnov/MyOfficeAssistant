@@ -1,4 +1,4 @@
-﻿namespace InteractiveGraphicMenu
+﻿namespace InteractiveGraphicMenu.Interfaces
 {
     public interface IHighlighted
     {

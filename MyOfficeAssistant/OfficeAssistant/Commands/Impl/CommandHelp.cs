@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using InteractiveGraphicMenu;
+using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.ConsoleHelper;
 
 namespace OfficeAssistant.Commands.Impl
