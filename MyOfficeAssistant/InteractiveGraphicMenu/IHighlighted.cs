@@ -1,4 +1,4 @@
-﻿namespace OfficeAssistant.Commands
+﻿namespace InteractiveGraphicMenu
 {
     public interface IHighlighted
     {

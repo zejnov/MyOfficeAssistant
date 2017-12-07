@@ -1,12 +1,11 @@
 ﻿using System;
-using OfficeAssistant.Commands;
-using OfficeAssistant.Domain;
+using InteractiveGraphicMenu.Helpers;
 
-namespace OfficeAssistant.ConsoleHelper
+namespace InteractiveGraphicMenu
 {
-    public class GraphicMenu
+    public class GraphicMenu<T> where T : IHighlighted
     {
-        public void PrintMenu(ICommand[][] commandsArray)
+        public void PrintMenu(T[][] commandsArray)
         {
             var parameters = new GraphicMenuParameters()
             {
@@ -22,7 +21,7 @@ namespace OfficeAssistant.ConsoleHelper
         }
 
         //********************************** OPTIONS ******************************
-        private void PrintMenuOptions(ICommand[][] commandsArray, int size = 61)
+        private void PrintMenuOptions(T[][] commandsArray, int size = 61)
         {
             var rows = 2;
             var columns = 4;
@@ -39,7 +38,7 @@ namespace OfficeAssistant.ConsoleHelper
             }
         }
 
-        private void PrintOption(ICommand command, int optionSize = 14)
+        private void PrintOption(T command, int optionSize = 14)
         {
             Write.Vertical();
 

@@ -48,21 +48,15 @@
     <Compile Include="Commands\CommandManager.cs" />
     <Compile Include="Commands\Impl\CommandTicTacToe.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Commands\IHighlighted.cs" />
     <Compile Include="Commands\Impl\CommandGuessGame.cs" />
     <Compile Include="Commands\Impl\CommandMaras.cs" />
     <Compile Include="Commands\Impl\CommandExit.cs" />
     <Compile Include="Commands\Impl\CommandHelp.cs" />
     <Compile Include="Commands\Impl\CommandGameMenu.cs" />
     <Compile Include="Commands\Impl\CommandSample.cs" />
-    <Compile Include="ConsoleHelper\ArrowsHandling.cs" />
-    <Compile Include="ConsoleHelper\AssistantEnums.cs" />
-    <Compile Include="ConsoleHelper\GraphicMenu.cs" />
-    <Compile Include="ConsoleHelper\MenuManager.cs" />
     <Compile Include="ConsoleHelper\Read.cs" />
     <Compile Include="ConsoleHelper\Write.cs" />
     <Compile Include="Domain\ApplicationState.cs" />
-    <Compile Include="Domain\GraphicMenuParameters.cs" />
     <Compile Include="Extensions\AppStateExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +76,10 @@
     <ProjectReference Include="..\Game.TicTacToe\Game.TicTacToe.csproj">
       <Project>{4979E546-1CC4-4CE5-9C83-5B5BA953C98E}</Project>
       <Name>Game.TicTacToe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InteractiveGraphicMenu\InteractiveGraphicMenu.csproj">
+      <Project>{B4117CEB-A3CC-4BFC-BDCA-602F77F9A5A4}</Project>
+      <Name>InteractiveGraphicMenu</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

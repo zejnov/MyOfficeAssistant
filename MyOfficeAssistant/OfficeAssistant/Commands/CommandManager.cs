@@ -16,7 +16,15 @@ namespace OfficeAssistant.Commands
         {
            AddOperations();
         }
-        
+
+        /// <summary>
+        /// getting/creating one instance of manager
+        /// </summary>
+        public static CommandManager GetInstance()
+        {
+            return _manager ?? (_manager = new CommandManager());
+        }
+
         /// <summary>
         /// add commands from 'reflection'
         /// </summary>
@@ -34,14 +42,6 @@ namespace OfficeAssistant.Commands
                 if (string.IsNullOrEmpty(command?.Name)) continue;
                 _avaibleCommands.Add(command);
             }
-        }
-
-        /// <summary>
-        /// getting/creating one instance of manager
-        /// </summary>
-        public static CommandManager GetInstance()
-        {
-            return _manager ?? (_manager = new CommandManager());
         }
 
         /// <summary>

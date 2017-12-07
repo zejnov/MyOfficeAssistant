@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Linq;
+using InteractiveGraphicMenu;
+using InteractiveGraphicMenu.Helpers;
 using OfficeAssistant.Commands;
 using OfficeAssistant.ConsoleHelper;
 using OfficeAssistant.Domain;
+using Write = OfficeAssistant.ConsoleHelper.Write;
 
 namespace OfficeAssistant.Application
 {
@@ -12,11 +15,12 @@ namespace OfficeAssistant.Application
         private static Assistant _officeAssistant { get; set; }
         private readonly CommandManager _commandManager = CommandManager.GetInstance();
         private ArrowsHandling _arrowsHandling { get; set; }
-        private GraphicMenu _graphicMenu { get; set; }
-        private MenuManager _menuManager { get; set; }
+        private GraphicMenu<ICommand> _graphicMenu { get; set; }
+        private MenuManager<ICommand> _menuManager { get; set; }
 
-        public MenuManager MenuManager => _menuManager ?? (_menuManager = new MenuManager());
-        public GraphicMenu GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu());
+        //for IoC in future
+        public MenuManager<ICommand> MenuManager => _menuManager ?? (_menuManager = new MenuManager<ICommand>());
+        public GraphicMenu<ICommand> GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu<ICommand>());
         public ArrowsHandling ArrowsHandling => _arrowsHandling ?? (_arrowsHandling = new ArrowsHandling());
 
 

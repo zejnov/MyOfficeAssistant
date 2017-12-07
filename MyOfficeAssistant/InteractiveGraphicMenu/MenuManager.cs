@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using OfficeAssistant.Commands;
 
-namespace OfficeAssistant.ConsoleHelper
+namespace InteractiveGraphicMenu
 {
-    public class MenuManager
+    public class MenuManager<T> where T : class, IHighlighted
     {
-        public void ExecuteMenuMove(ICommand[][] commandsArray, Tuple<int, int> tuple)
+        public void ExecuteMenuMove(T[][] commandsArray, Tuple<int, int> tuple)
         {
             if (commandsArray[tuple.Item2][tuple.Item1] == null)
                 return;
@@ -15,7 +14,7 @@ namespace OfficeAssistant.ConsoleHelper
             commandsArray[tuple.Item2][tuple.Item1].IsHighlighted = true;
         }
 
-        private void ClearAllHiglihgts(ICommand[][] commandsArray, int rows, int columns)
+        private void ClearAllHiglihgts(T[][] commandsArray, int rows, int columns)
         {
             for (var row = 0; row < rows; row++)
             {
@@ -28,7 +27,7 @@ namespace OfficeAssistant.ConsoleHelper
             }
         }
 
-        public ICommand[][] GenerateCommandsArray(List<ICommand> list, int size)
+        public T[][] GenerateCommandsArray(List<T> list, int size)
         {
             var options = list.Count;
             var rows = options / 4;
@@ -42,32 +41,34 @@ namespace OfficeAssistant.ConsoleHelper
             {
                 for (var column = 0; column < size; column++)
                 {
-                    array[row][column] = index < options ? list[index++] : new CommandEmpty();
+                    array[row][column] = index < options 
+                        ? list[index++] 
+                        : null;
                 }
             }
             return array;
         }
 
-        private ICommand[][] GenerateEmptyArray(int rows, int size)
+        private T[][] GenerateEmptyArray(int rows, int size)
         {
-            var array = new ICommand[rows][];
+            var array = new T[rows][];
             for (var row = 0; row < rows; row++)
             {
-                array[row] = new ICommand[size];
+                array[row] = new T[size];
             }
             return array;
         }
 
-        private class CommandEmpty : ICommand
-        {
-            public string Name => string.Empty;
-            public bool IsHighlighted { get; set; }
-            public string Command { get; }
-            public string HelpInfo { get; }
-            public void Execute()
-            {
-                throw new NotImplementedException();
-            }
-        }
+        //private class CommandEmpty : IHighlighted
+        //{
+        //    public string Name => string.Empty;
+        //    public bool IsHighlighted { get; set; }
+        //    public string Command { get; }
+        //    public string HelpInfo { get; }
+        //    public void Execute()
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //}
     }
 }

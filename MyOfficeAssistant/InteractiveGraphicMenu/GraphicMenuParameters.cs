@@ -1,4 +1,4 @@
-﻿namespace OfficeAssistant.Domain
+﻿namespace InteractiveGraphicMenu
 {
     public class GraphicMenuParameters
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OfficeAssistant.ConsoleHelper
+namespace InteractiveGraphicMenu.Helpers
 {
     public class ArrowsHandling
     {

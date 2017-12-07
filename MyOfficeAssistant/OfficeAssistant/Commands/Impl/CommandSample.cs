@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using OfficeAssistant.ConsoleHelper;
+using InteractiveGraphicMenu;
 
 namespace OfficeAssistant.Commands.Impl
 {
@@ -11,15 +11,15 @@ namespace OfficeAssistant.Commands.Impl
         public string HelpInfo => "Doing sample stuff";
         public bool IsHighlighted { get; set; }
 
-        private MenuManager _menuManager { get; set; }
-        public MenuManager MenuManager => _menuManager ?? (_menuManager = new MenuManager());
+        private MenuManager<ICommand> _menuManager { get; set; }
+        public MenuManager<ICommand> MenuManager => _menuManager ?? (_menuManager = new MenuManager<ICommand>());
 
         public void Execute()
         {
             var list = CommandManager.GetInstance().GetAvaibleCommands().ToList();
             var commandsArray = MenuManager.GenerateCommandsArray(list, 4);
 
-            var menu = new GraphicMenu();
+            var menu = new GraphicMenu<ICommand>();
             Console.Clear();
 
             menu.PrintMenu(commandsArray);
