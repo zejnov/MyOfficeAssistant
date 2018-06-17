@@ -12,7 +12,7 @@ namespace OfficeAssistant.Application
     {
         public bool IsRunning { get; set; }
         private static Assistant _officeAssistant { get; set; }
-        private readonly CommandManager<ICommand> _commandManager = CommandManager<ICommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly());
+        private readonly CommandManager<IMainMenuCommand> _commandManager = CommandManager<IMainMenuCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly());
       
         public static Assistant GetInstance()
         {

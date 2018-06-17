@@ -4,7 +4,7 @@ using OfficeAssistant.Domain;
 
 namespace OfficeAssistant.Commands.Impl
 {
-    internal class CommandExit : ICommand
+    internal class MainMenuCommandExit : IMainMenuCommand
     {
         public string Name => "Exit";
         public int Ordinal => 999;

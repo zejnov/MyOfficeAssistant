@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices.ComTypes;
 using Component.Service.CommandsManager.Interfaces;
 
 namespace Component.Service.CommandsManager
@@ -50,24 +49,23 @@ namespace Component.Service.CommandsManager
         /// <summary>
         /// getting command from list
         /// </summary>
-        public List<string> GetAvaibleCommandNames() => _avaibleCommands.Select(c => c.Command).ToList();
+        public List<string> GetAvaibleCommandNames() => GetAvaibleCommands()
+            .Select(c => c.Command)
+            .ToList();
 
         /// <summary>
         /// getting command from list
         /// </summary>
-        public List<T> GetAvaibleCommands()
-        {
-            return _avaibleCommands
-                .OrderBy(c => c.Ordinal)
-                .ThenBy(c => c.Command)
-                .ToList();
-        }
+        public List<T> GetAvaibleCommands() => _avaibleCommands
+            .OrderBy(c => c.Ordinal)
+            .ThenBy(c => c.Command)
+            .ToList();
 
         /// <summary>
         /// managing given command to execute
         /// </summary>
         public void Execute(string choosenCommand) => _avaibleCommands
-            .SingleOrDefault(c => c.Command == choosenCommand)?
+            .SingleOrDefault(c => c.Command.Equals(choosenCommand, StringComparison.InvariantCultureIgnoreCase))?
             .Execute();
 
         /// <summary>

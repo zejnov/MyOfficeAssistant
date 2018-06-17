@@ -1,5 +1,6 @@
 ﻿using System;
-using Game.TicTacToe.CommandManagement;
+using Component.Service.CommandsManager;
+using Game.TicTacToe.CommandManagement.Commands;
 using Game.TicTacToe.IoHelpers;
 
 namespace Game.TicTacToe.GameOperations
@@ -26,7 +27,7 @@ namespace Game.TicTacToe.GameOperations
         {
             WriteHelper.PrintAvaibleCommands();
             var choosenCommand = ReadHelper.GetCommandFromUser();
-            CommandManager.GetInstance().Execute(choosenCommand);
+            CommandManager<IGameCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).Execute(choosenCommand);
         }
     }
 }

@@ -4,7 +4,7 @@ using OfficeAssistant.ConsoleHelper;
 
 namespace OfficeAssistant.Commands.Impl
 {
-    internal class CommandHelp : ICommand
+    internal class MainMenuCommandHelp : IMainMenuCommand
     {
         public string Name => "Help";
         public int Ordinal => 888;
@@ -14,7 +14,7 @@ namespace OfficeAssistant.Commands.Impl
 
         public void Execute()
         {
-            var commands = CommandManager<ICommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommands();
+            var commands = CommandManager<IMainMenuCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommands();
             Write.PrintAvaibleCommandsHelp(commands);
         }
     }

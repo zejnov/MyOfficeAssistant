@@ -1,5 +1,7 @@
 ﻿using System;
+using Component.Service.CommandsManager;
 using Game.TicTacToe.CommandManagement;
+using Game.TicTacToe.CommandManagement.Commands;
 
 namespace Game.TicTacToe.IoHelpers
 {
@@ -10,7 +12,7 @@ namespace Game.TicTacToe.IoHelpers
         /// </summary>
         public static void PrintAvaibleCommandsHelp()//List<ICommand> commands)
         {
-            var commands = CommandManager.GetInstance().GetAllCommands();
+            var commands = CommandManager<IGameCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommands();
             int i = 1;
             Console.Clear();
             Console.WriteLine("WELCOME TO HELP!");
@@ -25,7 +27,7 @@ namespace Game.TicTacToe.IoHelpers
 
         public static void PrintAvaibleCommands()
         {
-            var commands = CommandManager.GetInstance().GetAvaibleCommandNames();
+            var commands = CommandManager<IGameCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommandNames();
             Console.Clear();
             Console.Write("Avaible commands: ");
             var counter = 0;

@@ -3,7 +3,7 @@ using InteractiveGraphicMenu.Interfaces;
 
 namespace OfficeAssistant.Commands.Impl
 {
-    public class CommandGuessGame : ICommand
+    public class MainMenuCommandGuessGame : IMainMenuCommand
     {
         public string Name => "GuessGame";
         public int Ordinal => 101;

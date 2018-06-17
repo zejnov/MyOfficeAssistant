@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+using Component.Service.CommandsManager;
 using Game.TicTacToe.CommandManagement;
+using Game.TicTacToe.CommandManagement.Commands;
 using Game.TTTProvider.Configuration;
 
 namespace Game.TicTacToe.IoHelpers
@@ -36,7 +38,7 @@ namespace Game.TicTacToe.IoHelpers
 
         private static bool CheckCommandExist(string command)
         {
-            return CommandManager.GetInstance().GetAvaibleCommandNames().Contains(command);
+            return CommandManager<IGameCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommandNames().Contains(command);
         }
 
         public static T GetData<T>(string message)

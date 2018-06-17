@@ -8,7 +8,7 @@ using OfficeAssistant.Domain;
 
 namespace OfficeAssistant.Commands.Impl
 {
-    public class CommandGameMenu : ICommand
+    public class MainMenuCommandGameMenu : IMainMenuCommand
     {
         public string Name => "GameMenu";
         public int Ordinal => 50;
@@ -17,19 +17,19 @@ namespace OfficeAssistant.Commands.Impl
         public bool IsHighlighted { get; set; }
 
         private ArrowsHandling _arrowsHandling { get; set; }
-        private GraphicMenu<ICommand> _graphicMenu { get; set; }
-        private MenuManager<ICommand> _menuManager { get; set; }
+        private GraphicMenu<IMainMenuCommand> _graphicMenu { get; set; }
+        private MenuManager<IMainMenuCommand> _menuManager { get; set; }
 
         //for IoC in future
-        public MenuManager<ICommand> MenuManager => _menuManager ?? (_menuManager = new MenuManager<ICommand>());
-        public GraphicMenu<ICommand> GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu<ICommand>());
+        public MenuManager<IMainMenuCommand> MenuManager => _menuManager ?? (_menuManager = new MenuManager<IMainMenuCommand>());
+        public GraphicMenu<IMainMenuCommand> GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu<IMainMenuCommand>());
         public ArrowsHandling ArrowsHandling => _arrowsHandling ?? (_arrowsHandling = new ArrowsHandling());
 
         public void Execute()
         {
             var tuple = new Tuple<int, int>(0, 0);
 
-            var list = CommandManager<ICommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly())
+            var list = CommandManager<IMainMenuCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly())
                 .GetAvaibleCommands();
 
             var commandsArray = MenuManager.GenerateCommandsArray(list,  4);

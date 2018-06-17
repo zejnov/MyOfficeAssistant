@@ -10,7 +10,7 @@ namespace OfficeAssistant.ConsoleHelper
     {
         internal static void AvaibleCommands()
         {
-            var commands = CommandManager<ICommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommandNames();
+            var commands = CommandManager<IMainMenuCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommandNames();
             Console.Clear();
             Console.Write("Avaible commands: ");
             var counter = 0;
@@ -41,7 +41,7 @@ namespace OfficeAssistant.ConsoleHelper
             }
         }
 
-        public static void PrintAvaibleCommandsHelp(List<ICommand> commands)
+        public static void PrintAvaibleCommandsHelp(List<IMainMenuCommand> commands)
         {
             int i = 1;
             Console.Clear();

@@ -3,7 +3,7 @@ using InteractiveGraphicMenu.Interfaces;
 
 namespace OfficeAssistant.Commands.Impl
 {
-    public class CommandTicTacToe : ICommand
+    public class MainMenuCommandTicTacToe : IMainMenuCommand
     {
         public string Name => "TicTacToe";
         public int Ordinal => 444;

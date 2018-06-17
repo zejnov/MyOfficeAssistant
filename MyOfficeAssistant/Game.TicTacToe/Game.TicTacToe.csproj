@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandManagement\CommandManager.cs" />
     <Compile Include="CommandManagement\Commands\CommandExit.cs" />
     <Compile Include="CommandManagement\Commands\CommandHelp.cs" />
     <Compile Include="CommandManagement\Commands\CommandSet.cs" />

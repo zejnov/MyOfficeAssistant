@@ -3,7 +3,7 @@ using InteractiveGraphicMenu.Interfaces;
 
 namespace OfficeAssistant.Commands.Impl
 {
-    internal class CommandToDoList : ICommand
+    internal class MainMenuCommandToDoList : IMainMenuCommand
     {
         public string Name => "ToDoList";
         public int Ordinal => 1;

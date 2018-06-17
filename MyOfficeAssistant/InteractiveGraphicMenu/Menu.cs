@@ -9,15 +9,15 @@ namespace InteractiveGraphicMenu
     public class Menu
     {
         private ArrowsHandling _arrowsHandling { get; set; }
-        private GraphicMenu<ICommand> _graphicMenu { get; set; }
-        private MenuManager<ICommand> _menuManager { get; set; }
+        private GraphicMenu<IMainMenuCommand> _graphicMenu { get; set; }
+        private MenuManager<IMainMenuCommand> _menuManager { get; set; }
 
         //for IoC in future
-        public MenuManager<ICommand> MenuManager => _menuManager ?? (_menuManager = new MenuManager<ICommand>());
-        public GraphicMenu<ICommand> GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu<ICommand>());
+        public MenuManager<IMainMenuCommand> MenuManager => _menuManager ?? (_menuManager = new MenuManager<IMainMenuCommand>());
+        public GraphicMenu<IMainMenuCommand> GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu<IMainMenuCommand>());
         public ArrowsHandling ArrowsHandling => _arrowsHandling ?? (_arrowsHandling = new ArrowsHandling());
         
-        public void Invoke(List<ICommand> list, bool IsRunning = true)
+        public void Invoke(List<IMainMenuCommand> list, bool IsRunning = true)
         {
             if (list.Count == 0)
                 return;

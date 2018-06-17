@@ -2,7 +2,7 @@
 
 namespace InteractiveGraphicMenu.Interfaces
 {
-    public interface ICommand : IHighlighted, IBaseCommand 
+    public interface IMainMenuCommand : IHighlighted, IBaseCommand 
     {
         
     }
