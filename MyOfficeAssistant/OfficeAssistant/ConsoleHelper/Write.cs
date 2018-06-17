@@ -9,7 +9,7 @@ namespace OfficeAssistant.ConsoleHelper
     {
         internal static void AvaibleCommands()
         {
-            var commands = CommandManager.GetInstance(typeof(ICommand)).GetAvaibleCommandNames();
+            var commands = CommandManager<ICommand>.GetInstance().GetAvaibleCommandNames();
             Console.Clear();
             Console.Write("Avaible commands: ");
             var counter = 0;

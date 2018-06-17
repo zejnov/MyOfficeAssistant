@@ -28,7 +28,7 @@ namespace OfficeAssistant.Commands.Impl
         {
             var tuple = new Tuple<int, int>(0, 0);
 
-            var list = CommandManager.GetInstance(typeof(ICommand))
+            var list = CommandManager<ICommand>.GetInstance()
                 .GetAvaibleCommands();
 
             var commandsArray = MenuManager.GenerateCommandsArray(list,  4);

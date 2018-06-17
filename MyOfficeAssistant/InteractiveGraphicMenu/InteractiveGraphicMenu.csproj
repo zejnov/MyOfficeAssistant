@@ -45,6 +45,7 @@
     <Compile Include="Helpers\ArrowsHandling.cs" />
     <Compile Include="Helpers\AssistantEnums.cs" />
     <Compile Include="Helpers\Write.cs" />
+    <Compile Include="Interfaces\IBaseCommand.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IHighlighted.cs" />
     <Compile Include="Menu.cs" />

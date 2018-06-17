@@ -1,55 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using InteractiveGraphicMenu.Interfaces;
 
 namespace OfficeAssistant.Commands
 {
-    public class CommandManager
+    public class CommandManager<T> where T : class, IBaseCommand
     {
-        private readonly List<ICommand> _avaibleCommands = new List<ICommand>();
-        private static CommandManager _manager;
-        private Type _type;
+        private readonly List<T> _avaibleCommands = new List<T>();
+        private static CommandManager<T> _manager;
+        private readonly Type _type = typeof(T);
 
         /// <summary>
         /// ctor
         /// </summary>
-        public CommandManager(Type type)
-        {
-            _type = type;
-           AddOperations();
-        }
+        public CommandManager() => AddOperations();
 
         /// <summary>
         /// getting/creating one instance of manager
         /// </summary>
-        public static CommandManager GetInstance(Type type)
-        {
-            return _manager ?? (_manager = new CommandManager(type));
-        }
+        public static CommandManager<T> GetInstance() => _manager ?? (_manager = new CommandManager<T>());
 
         /// <summary>
         /// add commands from 'reflection'
         /// </summary>
         private void AddOperations()
         {
-            var sth = _type;
-            var sthIcom = typeof(ICommand);
-            var xxx = typeof(ICommand);
-            
-            var icommands = System.Reflection.Assembly.GetExecutingAssembly()
+            var icommands = System.Reflection.Assembly
+                .GetExecutingAssembly()
                 .GetTypes()
-                .Where(type => type.GetInterfaces().Any(i => i.FullName == sth.FullName));
-
-            var icommansfasdfds = System.Reflection.Assembly.GetExecutingAssembly()
-                .GetTypes()
-                .Where(s => s.GetInterfaces().Contains(_type));
+                .Where(s => s.GetInterfaces().Any(i => i.Name == _type.Name));
 
             foreach (var mytype in icommands)
             {
-                var command = Activator.CreateInstance(mytype) as ICommand;
-                if (string.IsNullOrEmpty(command?.Name)) continue;
+                var command = Activator.CreateInstance(mytype) as T;
+                if (string.IsNullOrEmpty(command?.Command)) continue;
                 _avaibleCommands.Add(command);
             }
         }
@@ -57,39 +42,26 @@ namespace OfficeAssistant.Commands
         /// <summary>
         /// getting command from list
         /// </summary>
-        public IEnumerable<string> GetAvaibleCommandNames()
-        {
-            return _avaibleCommands.Select(c => c.Command);
-        }
+        public List<string> GetAvaibleCommandNames() => _avaibleCommands.Select(c => c.Command).ToList();
 
         /// <summary>
         /// getting command from list
         /// </summary>
-        public List<ICommand> GetAvaibleCommands()
-        {
-            return _avaibleCommands
-                .OrderBy(c => c.Ordinal)
-                .ThenBy(c => c.Name)
-                .ToList();;
-        }
+        public List<T> GetAvaibleCommands() => _avaibleCommands
+            .OrderBy(c => c.Ordinal)
+            .ThenBy(c => c.Command)
+            .ToList();
 
         /// <summary>
         /// managing given command to execute
         /// </summary>
-        public void Execute(string choosenCommand)
-        {
-            _avaibleCommands
-                .SingleOrDefault(c => c.Command == choosenCommand)?
-                .Execute();
-        }
+        public void Execute(string choosenCommand) => _avaibleCommands
+            .SingleOrDefault(c => c.Command == choosenCommand)?
+            .Execute();
 
         /// <summary>
         /// check if command exist
         /// </summary>
-        public bool Exist(string commandName)
-        {
-            var command = _avaibleCommands.FirstOrDefault(c => c.Command == commandName);
-            return command != null;
-        }
+        public bool Exist(string commandName) => _avaibleCommands.FirstOrDefault(c => c.Command == commandName) != null;
     }
 }

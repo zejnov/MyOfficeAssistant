@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
-using System.Windows.Input;
 using InteractiveGraphicMenu;
+using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.Commands;
 using OfficeAssistant.ConsoleHelper;
 using OfficeAssistant.Domain;
@@ -13,7 +12,7 @@ namespace OfficeAssistant.Application
     {
         public bool IsRunning { get; set; }
         private static Assistant _officeAssistant { get; set; }
-        private readonly CommandManager _commandManager = CommandManager.GetInstance(typeof(ICommand));
+        private readonly CommandManager<ICommand> _commandManager = CommandManager<ICommand>.GetInstance();
       
         public static Assistant GetInstance()
         {

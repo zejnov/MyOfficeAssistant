@@ -13,7 +13,7 @@ namespace OfficeAssistant.Commands.Impl
 
         public void Execute()
         {
-            var commands = CommandManager.GetInstance(typeof(ICommand)).GetAvaibleCommands();
+            var commands = CommandManager<ICommand>.GetInstance().GetAvaibleCommands();
             Write.PrintAvaibleCommandsHelp(commands);
         }
     }
