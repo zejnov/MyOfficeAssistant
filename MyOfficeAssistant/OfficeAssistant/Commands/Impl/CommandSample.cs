@@ -19,7 +19,7 @@ namespace OfficeAssistant.Commands.Impl
 
         public void Execute()
         {
-            var list = CommandManager<ICommand>.GetInstance().GetAvaibleCommands();
+            var list = CommandManager<ICommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommands();
             var commandsArray = MenuManager.GenerateCommandsArray(list, 4);
 
             var menu = new GraphicMenu<ICommand>();

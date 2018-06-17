@@ -29,7 +29,7 @@ namespace OfficeAssistant.Commands.Impl
         {
             var tuple = new Tuple<int, int>(0, 0);
 
-            var list = CommandManager<ICommand>.GetInstance()
+            var list = CommandManager<ICommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly())
                 .GetAvaibleCommands();
 
             var commandsArray = MenuManager.GenerateCommandsArray(list,  4);

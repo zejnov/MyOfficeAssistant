@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices.ComTypes;
 using Component.Service.CommandsManager.Interfaces;
 
 namespace Component.Service.CommandsManager
@@ -10,25 +12,31 @@ namespace Component.Service.CommandsManager
         private readonly List<T> _avaibleCommands = new List<T>();
         private static CommandManager<T> _manager;
         private readonly Type _type = typeof(T);
+        private IEnumerable<Type> _types;
 
         /// <summary>
         /// ctor
         /// </summary>
-        public CommandManager() => AddOperations();
+        /// <param name="assembly"></param>
+        public CommandManager(Assembly assembly) => AddOperations(assembly);
 
         /// <summary>
         /// getting/creating one instance of manager
         /// </summary>
-        public static CommandManager<T> GetInstance() => _manager ?? (_manager = new CommandManager<T>());
+        public static CommandManager<T> GetInstance(Assembly assembly)
+        {
+            return _manager ?? (_manager = new CommandManager<T>(assembly));
+        }
 
         /// <summary>
         /// add commands from 'reflection'
         /// </summary>
-        private void AddOperations()
+        private void AddOperations(Assembly assembly)
         {
-            var icommands = System.Reflection.Assembly
-                .GetExecutingAssembly()
-                .GetTypes()
+            var types = assembly
+                .GetTypes();
+                
+                var icommands = types
                 .Where(s => s.GetInterfaces().Any(i => i.Name == _type.Name));
 
             foreach (var mytype in icommands)
@@ -47,10 +55,13 @@ namespace Component.Service.CommandsManager
         /// <summary>
         /// getting command from list
         /// </summary>
-        public List<T> GetAvaibleCommands() => _avaibleCommands
-            .OrderBy(c => c.Ordinal)
-            .ThenBy(c => c.Command)
-            .ToList();
+        public List<T> GetAvaibleCommands()
+        {
+            return _avaibleCommands
+                .OrderBy(c => c.Ordinal)
+                .ThenBy(c => c.Command)
+                .ToList();
+        }
 
         /// <summary>
         /// managing given command to execute

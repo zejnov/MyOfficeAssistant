@@ -14,7 +14,7 @@ namespace OfficeAssistant.Commands.Impl
 
         public void Execute()
         {
-            var commands = CommandManager<ICommand>.GetInstance().GetAvaibleCommands();
+            var commands = CommandManager<ICommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommands();
             Write.PrintAvaibleCommandsHelp(commands);
         }
     }
