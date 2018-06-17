@@ -1,9 +1,8 @@
-﻿using Game.TicTacToe;
-using InteractiveGraphicMenu.Interfaces;
+﻿using InteractiveGraphicMenu.Interfaces;
 
-namespace OfficeAssistant.Commands.Impl
+namespace OfficeAssistant.Commands
 {
-    public class MainMenuCommandTicTacToe : IMainMenuCommand
+    public class TicTacToe : IMainMenuCommand
     {
         public string DisplayName => "TicTacToe";
         public int Ordinal => 444;
@@ -13,7 +12,7 @@ namespace OfficeAssistant.Commands.Impl
 
         public void Execute()
         {
-            new TicTacToe().Run();
+            new Game.TicTacToe.TicTacToe().Run();
         }
     }
 }

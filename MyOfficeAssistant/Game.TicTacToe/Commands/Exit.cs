@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Game.TicTacToe.CommandManagement.Commands;
+using OfficeAssistant.Core.Exception;
 
-namespace Game.TicTacToe.CommandManagement.Commands
+namespace Game.TicTacToe.Commands
 {
-    public class CommandExit : IGameCommand
+    public class Exit : IGameCommand
     {
         public string DisplayName => "Exit";
         public int Ordinal => 999;
@@ -10,7 +11,7 @@ namespace Game.TicTacToe.CommandManagement.Commands
         public string HelpInfo => "Exit application";
         public void Execute()
         {
-            Environment.Exit(0);
+            throw new ExitException();
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using InteractiveGraphicMenu.Interfaces;
-using OfficeAssistant.Domain;
+using OfficeAssistant.Core.Exception;
 
-namespace OfficeAssistant.Commands.Impl
+namespace OfficeAssistant.Commands
 {
-    internal class MainMenuCommandExit : IMainMenuCommand
+    internal class Exit : IMainMenuCommand
     {
         public string DisplayName => "Exit";
         public int Ordinal => 999;
@@ -14,8 +14,7 @@ namespace OfficeAssistant.Commands.Impl
 
         public void Execute()
         {
-            ApplicationState.IsRunning = false;
-            Environment.Exit(0);
+            throw new ExitException();
         }
     }
 }

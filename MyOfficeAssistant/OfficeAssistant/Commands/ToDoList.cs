@@ -1,9 +1,9 @@
 ﻿using System;
 using InteractiveGraphicMenu.Interfaces;
 
-namespace OfficeAssistant.Commands.Impl
+namespace OfficeAssistant.Commands
 {
-    internal class MainMenuCommandToDoList : IMainMenuCommand
+    internal class ToDoList : IMainMenuCommand
     {
         public string DisplayName => "ToDoList";
         public int Ordinal => 1;

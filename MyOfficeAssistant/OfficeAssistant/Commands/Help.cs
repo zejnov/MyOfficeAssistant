@@ -2,9 +2,9 @@
 using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.ConsoleHelper;
 
-namespace OfficeAssistant.Commands.Impl
+namespace OfficeAssistant.Commands
 {
-    internal class MainMenuCommandHelp : IMainMenuCommand
+    internal class Help : IMainMenuCommand
     {
         public string DisplayName => "Help";
         public int Ordinal => 888;

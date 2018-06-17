@@ -1,8 +1,9 @@
-﻿using Game.TicTacToe.IoHelpers;
+﻿using Game.TicTacToe.CommandManagement.Commands;
+using Game.TicTacToe.IoHelpers;
 
-namespace Game.TicTacToe.CommandManagement.Commands
+namespace Game.TicTacToe.Commands
 {
-    class CommandHelp : IGameCommand
+    class Help : IGameCommand
     {
         public string DisplayName => "Help";
         public int Ordinal => 888;

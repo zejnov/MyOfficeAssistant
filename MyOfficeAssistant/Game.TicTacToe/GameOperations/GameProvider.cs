@@ -2,6 +2,7 @@
 using Component.Service.CommandsManager;
 using Game.TicTacToe.CommandManagement.Commands;
 using Game.TicTacToe.IoHelpers;
+using OfficeAssistant.Core.Exception;
 
 namespace Game.TicTacToe.GameOperations
 {
@@ -14,6 +15,10 @@ namespace Game.TicTacToe.GameOperations
                 try
                 {
                     ProviderLoop();
+                }
+                catch (ExitException)
+                {
+                    break;
                 }
                 catch (Exception)
                 {

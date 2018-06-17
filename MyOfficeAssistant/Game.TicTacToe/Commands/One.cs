@@ -1,8 +1,9 @@
-﻿using Game.TTTProvider.TheGame;
+﻿using Game.TicTacToe.CommandManagement.Commands;
+using Game.TTTProvider.TheGame;
 
-namespace Game.TicTacToe.CommandManagement.Commands
+namespace Game.TicTacToe.Commands
 {
-    class CommandOne : IGameCommand
+    class One : IGameCommand
     {
         public string DisplayName => "One"; //Play
         public int Ordinal => 1;

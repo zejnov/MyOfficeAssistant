@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Linq;
 using Component.Service.CommandsManager;
 using InteractiveGraphicMenu;
 using InteractiveGraphicMenu.Interfaces;
 
-namespace OfficeAssistant.Commands.Impl
+namespace OfficeAssistant.Commands
 {
-    public class MainMenuCommandSample : IMainMenuCommand
+    public class Sample : IMainMenuCommand
     {
-        public string DisplayName => "bcdefghijklmnoprst";
+        public string DisplayName => "Sample";
         public int Ordinal => 555;
         public string Command => DisplayName;
         public string HelpInfo => "Doing sample stuff";

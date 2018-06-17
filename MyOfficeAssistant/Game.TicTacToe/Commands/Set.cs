@@ -1,9 +1,10 @@
-﻿using Game.TicTacToe.IoHelpers;
+﻿using Game.TicTacToe.CommandManagement.Commands;
+using Game.TicTacToe.IoHelpers;
 using Game.TTTProvider.Configuration;
 
-namespace Game.TicTacToe.CommandManagement.Commands
+namespace Game.TicTacToe.Commands
 {
-    class CommandSet : IGameCommand
+    class Set : IGameCommand
     {
         public string DisplayName => "Set"; //Play
         public int Ordinal => 5;

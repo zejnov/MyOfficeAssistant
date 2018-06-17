@@ -1,9 +1,9 @@
 ﻿using Game.GuessGame;
 using InteractiveGraphicMenu.Interfaces;
 
-namespace OfficeAssistant.Commands.Impl
+namespace OfficeAssistant.Commands
 {
-    public class MainMenuCommandGuessGame : IMainMenuCommand
+    public class GuessGame : IMainMenuCommand
     {
         public string DisplayName => "GuessGame";
         public int Ordinal => 101;
@@ -14,8 +14,7 @@ namespace OfficeAssistant.Commands.Impl
         public void Execute()
         {
             var gameExecutor = new GameExecutor();
-            gameExecutor.Play(new GuessGame());
-
+            gameExecutor.Play(new Game.GuessGame.GuessGame());
         }
     }
 }

@@ -4,16 +4,17 @@ using Component.Service.CommandsManager;
 using InteractiveGraphicMenu;
 using InteractiveGraphicMenu.Helpers;
 using InteractiveGraphicMenu.Interfaces;
-using OfficeAssistant.Domain;
+using OfficeAssistant.Core.Exception;
+using OfficeAssistant.Core.State;
 
-namespace OfficeAssistant.Commands.Impl
+namespace OfficeAssistant.Commands
 {
-    public class MainMenuCommandGameMenu : IMainMenuCommand
+    public class GameMenu : IMainMenuCommand
     {
         public string DisplayName => "GameMenu";
         public int Ordinal => 50;
         public string Command => "g";
-        public string HelpInfo => "Doing sample stuff";
+        public string HelpInfo => "Showing games";
         public bool IsSelected { get; set; }
 
         private ArrowsHandling _arrowsHandling { get; set; }
@@ -27,24 +28,33 @@ namespace OfficeAssistant.Commands.Impl
 
         public void Execute()
         {
+            
+            //TODO
             var tuple = new Tuple<int, int>(0, 0);
 
             var list = CommandManager<IMainMenuCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly())
                 .GetAvaibleCommands();
 
             var commandsArray = MenuManager.GenerateCommandsArray(list,  4);
-            
-            while (ApplicationState.IsRunning)
+
+            try
             {
-                Console.Clear();
-                MenuManager.ExecuteMenuMove(commandsArray, tuple);
-                GraphicMenu.PrintMenu(commandsArray);
-                tuple = ArrowsHandling.GetValidHighligthMove(tuple.Item1, tuple.Item2, 4, 2, out var isExecution);
-                if (isExecution)
+                while (ApplicationState.IsRunning)
                 {
-                    list.FirstOrDefault(c => c.IsSelected).Execute();
+                    Console.Clear();
+                    MenuManager.ExecuteMenuMove(commandsArray, tuple);
+                    GraphicMenu.PrintMenu(commandsArray);
+                    tuple = ArrowsHandling.GetValidHighligthMove(tuple.Item1, tuple.Item2, 4, 2, out var isExecution);
+                    if (isExecution)
+                    {
+                        list.FirstOrDefault(c => c.IsSelected).Execute();
+                    }
                 }
             }
+            catch (ExitException e)
+            {
+            }
+            
         }
     }
 }

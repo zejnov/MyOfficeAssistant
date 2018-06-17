@@ -43,18 +43,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\Assistant.cs" />
-    <Compile Include="Application\Maras.cs" />
-    <Compile Include="Application\Maras2.cs" />
-    <Compile Include="Commands\Impl\MainMenuCommandTicTacToe.cs" />
-    <Compile Include="Commands\Impl\MainMenuCommandGuessGame.cs" />
-    <Compile Include="Commands\Impl\MainMenuCommandExit.cs" />
-    <Compile Include="Commands\Impl\MainMenuCommandHelp.cs" />
-    <Compile Include="Commands\Impl\MainMenuCommandGameMenu.cs" />
-    <Compile Include="Commands\Impl\MainMenuCommandSample.cs" />
-    <Compile Include="Commands\Impl\MainMenuCommandToDoList.cs" />
+    <Compile Include="Commands\Exit.cs" />
+    <Compile Include="Commands\GameMenu.cs" />
+    <Compile Include="Commands\GuessGame.cs" />
+    <Compile Include="Commands\Help.cs" />
+    <Compile Include="Commands\Sample.cs" />
+    <Compile Include="Commands\TicTacToe.cs" />
+    <Compile Include="Commands\ToDoList.cs" />
     <Compile Include="ConsoleHelper\Read.cs" />
     <Compile Include="ConsoleHelper\Write.cs" />
-    <Compile Include="Domain\ApplicationState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,7 +79,10 @@
       <Project>{B4117CEB-A3CC-4BFC-BDCA-602F77F9A5A4}</Project>
       <Name>InteractiveGraphicMenu</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OfficeAssistant.Core\OfficeAssistant.Core.csproj">
+      <Project>{FE435EE4-2BBE-42D0-B6B5-7DDF7DA92C2C}</Project>
+      <Name>OfficeAssistant.Core</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

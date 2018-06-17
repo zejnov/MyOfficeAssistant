@@ -45,12 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandManagement\Commands\CommandExit.cs" />
-    <Compile Include="CommandManagement\Commands\CommandHelp.cs" />
-    <Compile Include="CommandManagement\Commands\CommandSet.cs" />
-    <Compile Include="CommandManagement\Commands\CommandOne.cs" />
-    <Compile Include="CommandManagement\Commands\CommandTwo.cs" />
-    <Compile Include="CommandManagement\Commands\IGameCommand.cs" />
+    <Compile Include="Commands\Exit.cs" />
+    <Compile Include="Commands\Help.cs" />
+    <Compile Include="Commands\One.cs" />
+    <Compile Include="Commands\Set.cs" />
+    <Compile Include="Commands\Two.cs" />
+    <Compile Include="Commands\IGameCommand.cs" />
     <Compile Include="IoHelpers\ReadHelper.cs" />
     <Compile Include="IoHelpers\WriteHelper.cs" />
     <Compile Include="TicTacToe.cs" />
@@ -69,6 +69,10 @@
     <ProjectReference Include="..\Game.TTTProvider\Game.TTTProvider.csproj">
       <Project>{ee9dd1ca-48d8-4a5f-a2e4-ca5d4d61e5e1}</Project>
       <Name>Game.TTTProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfficeAssistant.Core\OfficeAssistant.Core.csproj">
+      <Project>{fe435ee4-2bbe-42d0-b6b5-7ddf7da92c2c}</Project>
+      <Name>OfficeAssistant.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

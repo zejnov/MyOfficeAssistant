@@ -3,7 +3,8 @@ using Component.Service.CommandsManager;
 using InteractiveGraphicMenu;
 using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.ConsoleHelper;
-using OfficeAssistant.Domain;
+using OfficeAssistant.Core.Exception;
+using OfficeAssistant.Core.State;
 using Write = OfficeAssistant.ConsoleHelper.Write;
 
 namespace OfficeAssistant.Application
@@ -31,9 +32,11 @@ namespace OfficeAssistant.Application
                 //SimpleMenu();
                 ExternalMenu();
             }
+            catch(ExitException){}
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                Console.ReadLine();
                 throw;
             }
         }
