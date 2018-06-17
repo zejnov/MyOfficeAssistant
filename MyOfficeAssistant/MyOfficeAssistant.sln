@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OfficeTools", "OfficeTools"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList", "ToDoList\ToDoList.csproj", "{29A9FF95-5C33-4D1B-BD1B-51E9122955F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Component.Service.CommandsManager", "Component.Service.CommandsManager\Component.Service.CommandsManager.csproj", "{247EEDAF-1299-434D-9366-4D6241C17711}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{29A9FF95-5C33-4D1B-BD1B-51E9122955F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29A9FF95-5C33-4D1B-BD1B-51E9122955F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29A9FF95-5C33-4D1B-BD1B-51E9122955F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{247EEDAF-1299-434D-9366-4D6241C17711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{247EEDAF-1299-434D-9366-4D6241C17711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{247EEDAF-1299-434D-9366-4D6241C17711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{247EEDAF-1299-434D-9366-4D6241C17711}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{BB4A1BF2-FCEA-4F40-A82F-B2E1D7F73FAD} = {C924E8FD-41FC-47FF-BFE4-1662E3193232}
 		{B4117CEB-A3CC-4BFC-BDCA-602F77F9A5A4} = {BB4A1BF2-FCEA-4F40-A82F-B2E1D7F73FAD}
 		{29A9FF95-5C33-4D1B-BD1B-51E9122955F7} = {9B218868-339C-4FD9-838F-435D838F6385}
+		{247EEDAF-1299-434D-9366-4D6241C17711} = {4F5B0325-868C-43F3-B844-09E6209665E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0B593FE2-E22F-4AFA-BE0C-2559E4605569}

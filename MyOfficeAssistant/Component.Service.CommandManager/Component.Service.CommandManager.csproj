@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <AssemblyName>Component.Service.CommandManagerrrr</AssemblyName>
+    <RootNamespace>Component.Service.CommandManagerrrr</RootNamespace>
+  </PropertyGroup>
+</Project>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Component.Service.CommandsManager;
 using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.Commands;
 

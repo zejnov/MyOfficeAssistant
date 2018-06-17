@@ -1,4 +1,6 @@
-﻿namespace InteractiveGraphicMenu.Interfaces
+﻿using Component.Service.CommandsManager.Interfaces;
+
+namespace InteractiveGraphicMenu.Interfaces
 {
     public interface ICommand : IHighlighted, IBaseCommand 
     {

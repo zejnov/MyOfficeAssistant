@@ -2,7 +2,7 @@
 
 namespace Game.TicTacToe.CommandManagement.Commands
 {
-    public interface IMyCommand
+    public interface IMyCommand 
     {
         String Name { get; }
         String HelpInfo { get; }

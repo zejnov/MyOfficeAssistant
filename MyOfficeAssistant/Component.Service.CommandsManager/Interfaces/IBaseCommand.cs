@@ -1,10 +1,9 @@
-﻿namespace InteractiveGraphicMenu.Interfaces
+﻿namespace Component.Service.CommandsManager.Interfaces
 {
     public interface IBaseCommand
     {
         int Ordinal { get; }
         string Command { get; }
-        
         void Execute();
     }
 }

@@ -45,7 +45,6 @@
     <Compile Include="Application\Assistant.cs" />
     <Compile Include="Application\Maras.cs" />
     <Compile Include="Application\Maras2.cs" />
-    <Compile Include="Commands\CommandManager.cs" />
     <Compile Include="Commands\Impl\CommandTicTacToe.cs" />
     <Compile Include="Commands\Impl\CommandGuessGame.cs" />
     <Compile Include="Commands\Impl\CommandExit.cs" />
@@ -63,6 +62,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Component.Service.CommandsManager\Component.Service.CommandsManager.csproj">
+      <Project>{247EEDAF-1299-434D-9366-4D6241C17711}</Project>
+      <Name>Component.Service.CommandsManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Component.Service.Mail\Component.Service.Mail.csproj">
       <Project>{C78C1ADA-6FFB-4339-A71A-7498524ED1EB}</Project>
       <Name>Component.Service.Mail</Name>

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using InteractiveGraphicMenu.Interfaces;
+using Component.Service.CommandsManager.Interfaces;
 
-namespace OfficeAssistant.Commands
+namespace Component.Service.CommandsManager
 {
     public class CommandManager<T> where T : class, IBaseCommand
     {

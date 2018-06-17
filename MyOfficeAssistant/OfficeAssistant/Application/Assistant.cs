@@ -1,7 +1,7 @@
 ﻿using System;
+using Component.Service.CommandsManager;
 using InteractiveGraphicMenu;
 using InteractiveGraphicMenu.Interfaces;
-using OfficeAssistant.Commands;
 using OfficeAssistant.ConsoleHelper;
 using OfficeAssistant.Domain;
 using Write = OfficeAssistant.ConsoleHelper.Write;

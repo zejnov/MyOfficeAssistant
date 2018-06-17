@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Component.Service.CommandsManager;
 using InteractiveGraphicMenu;
 using InteractiveGraphicMenu.Helpers;
 using InteractiveGraphicMenu.Interfaces;
