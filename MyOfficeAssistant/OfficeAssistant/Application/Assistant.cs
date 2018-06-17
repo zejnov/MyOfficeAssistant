@@ -1,8 +1,11 @@
 ﻿using System;
-using System.Linq;
-using OfficeAssistant.Commands;
+using Component.Service.CommandsManager;
+using InteractiveGraphicMenu;
+using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.ConsoleHelper;
-using OfficeAssistant.Domain;
+using OfficeAssistant.Core.Exception;
+using OfficeAssistant.Core.State;
+using Write = OfficeAssistant.ConsoleHelper.Write;
 
 namespace OfficeAssistant.Application
 {
@@ -10,16 +13,8 @@ namespace OfficeAssistant.Application
     {
         public bool IsRunning { get; set; }
         private static Assistant _officeAssistant { get; set; }
-        private readonly CommandManager _commandManager = CommandManager.GetInstance();
-        private ArrowsHandling _arrowsHandling { get; set; }
-        private GraphicMenu _graphicMenu { get; set; }
-        private MenuManager _menuManager { get; set; }
-
-        public MenuManager MenuManager => _menuManager ?? (_menuManager = new MenuManager());
-        public GraphicMenu GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu());
-        public ArrowsHandling ArrowsHandling => _arrowsHandling ?? (_arrowsHandling = new ArrowsHandling());
-
-
+        private readonly CommandManager<IMainMenuCommand> _commandManager = CommandManager<IMainMenuCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly());
+      
         public static Assistant GetInstance()
         {
             return _officeAssistant ?? (_officeAssistant = new Assistant());
@@ -35,38 +30,28 @@ namespace OfficeAssistant.Application
             try
             {
                 //SimpleMenu();
-                ExtraMenu();
+                ExternalMenu();
             }
+            catch(ExitException){}
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                Console.ReadLine();
                 throw;
             }
         }
-        
-        private void ExtraMenu()
+
+        private void ExternalMenu()
         {
-            var tuple = new Tuple<int, int>(0, 0);
-
             var list = _commandManager
-                .GetAvaibleCommands()
-                .OrderBy(c => c.Name)
-                .ToList();
+                .GetAvaibleCommands();
 
-            var commandsArray = MenuManager.GenerateCommandsArray(list, 4);
-            do
-            {
-                Console.Clear();
-                MenuManager.ExecuteMenuMove(commandsArray, tuple);
-                GraphicMenu.PrintMenu(commandsArray);
-                tuple = ArrowsHandling.GetValidHighligthMove(tuple.Item1, tuple.Item2, 4, 2, out var isExecution);
-                if (isExecution)
-                {
-                    list.FirstOrDefault(c => c.IsHighlighted)?.Execute();
-                }
-            } while (ApplicationState.IsRunning);
+            new Menu().Invoke(list, ApplicationState.IsRunning);
         }
 
+        /// <summary>
+        /// if sth broke
+        /// </summary>
         private void SimpleMenu()
         {
             do

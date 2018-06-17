@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Component.Service.CommandsManager;
+using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.Commands;
 
 namespace OfficeAssistant.ConsoleHelper
@@ -8,7 +10,7 @@ namespace OfficeAssistant.ConsoleHelper
     {
         internal static void AvaibleCommands()
         {
-            var commands = CommandManager.GetInstance().GetAvaibleCommandNames();
+            var commands = CommandManager<IMainMenuCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommandNames();
             Console.Clear();
             Console.Write("Avaible commands: ");
             var counter = 0;
@@ -39,36 +41,17 @@ namespace OfficeAssistant.ConsoleHelper
             }
         }
 
-        public static void PrintAvaibleCommandsHelp(List<ICommand> commands)
+        public static void PrintAvaibleCommandsHelp(List<IMainMenuCommand> commands)
         {
             int i = 1;
             Console.Clear();
             Console.WriteLine("WELCOME TO HELP!");
             foreach (var command in commands)
             {
-                Console.WriteLine($"\n{i++}. {command.Name} \t-\t {command.HelpInfo}");
+                Console.WriteLine($"\n{i++}. {command.DisplayName} \t-\t {command.HelpInfo}");
             }
             Console.WriteLine("\n\nzjv/2017\n");
             Read.Wait();
-        }
-
-        public static void Enter()
-        {
-            Console.Write("\n");
-        }
-
-        public static void Vertical(bool withNewLine = false)
-        {
-            if (withNewLine) Enter();
-            Console.Write("|");
-        }
-
-        public static void Space(int space = 1)
-        {
-            for (var i = 0; i < space; i++)
-            {
-                Console.Write(" ");
-            }
         }
     }
 }

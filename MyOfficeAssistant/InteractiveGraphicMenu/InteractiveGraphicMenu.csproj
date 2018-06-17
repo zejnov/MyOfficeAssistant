@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B3022C58-0436-456C-A087-EE80335592EF}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>OfficeAssistant</RootNamespace>
-    <AssemblyName>OfficeAssistant</AssemblyName>
+    <ProjectGuid>{B4117CEB-A3CC-4BFC-BDCA-602F77F9A5A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InteractiveGraphicMenu</RootNamespace>
+    <AssemblyName>InteractiveGraphicMenu</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,46 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Assistant.cs" />
-    <Compile Include="Commands\Exit.cs" />
-    <Compile Include="Commands\GameMenu.cs" />
-    <Compile Include="Commands\GuessGame.cs" />
-    <Compile Include="Commands\Help.cs" />
-    <Compile Include="Commands\Sample.cs" />
-    <Compile Include="Commands\TicTacToe.cs" />
-    <Compile Include="Commands\ToDoList.cs" />
-    <Compile Include="ConsoleHelper\Read.cs" />
-    <Compile Include="ConsoleHelper\Write.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="GraphicMenu.cs" />
+    <Compile Include="Domain\GraphicMenuParameters.cs" />
+    <Compile Include="Helpers\ArrowsHandling.cs" />
+    <Compile Include="Helpers\AssistantEnums.cs" />
+    <Compile Include="Helpers\Write.cs" />
+    <Compile Include="Interfaces\IMainMenuCommand.cs" />
+    <Compile Include="Interfaces\ISelected.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="MenuManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\Component.Service.CommandManager\Component.Service.CommandManager.csproj">
+      <Project>{50AEC502-7B31-4806-9686-04FD75B8B2E5}</Project>
+      <Name>Component.Service.CommandManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Component.Service.CommandsManager\Component.Service.CommandsManager.csproj">
       <Project>{247EEDAF-1299-434D-9366-4D6241C17711}</Project>
       <Name>Component.Service.CommandsManager</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Component.Service.Mail\Component.Service.Mail.csproj">
-      <Project>{C78C1ADA-6FFB-4339-A71A-7498524ED1EB}</Project>
-      <Name>Component.Service.Mail</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Game.Guess\Game.GuessGame.csproj">
-      <Project>{4CB8C8FE-19B2-4971-AA12-9568CD182125}</Project>
-      <Name>Game.GuessGame</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Game.TicTacToe\Game.TicTacToe.csproj">
-      <Project>{4979E546-1CC4-4CE5-9C83-5B5BA953C98E}</Project>
-      <Name>Game.TicTacToe</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InteractiveGraphicMenu\InteractiveGraphicMenu.csproj">
-      <Project>{B4117CEB-A3CC-4BFC-BDCA-602F77F9A5A4}</Project>
-      <Name>InteractiveGraphicMenu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OfficeAssistant.Core\OfficeAssistant.Core.csproj">
-      <Project>{FE435EE4-2BBE-42D0-B6B5-7DDF7DA92C2C}</Project>
-      <Name>OfficeAssistant.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

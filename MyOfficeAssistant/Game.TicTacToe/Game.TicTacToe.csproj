@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B3022C58-0436-456C-A087-EE80335592EF}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>OfficeAssistant</RootNamespace>
-    <AssemblyName>OfficeAssistant</AssemblyName>
+    <ProjectGuid>{4979E546-1CC4-4CE5-9C83-5B5BA953C98E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Game.TicTacToe</RootNamespace>
+    <AssemblyName>Game.TicTacToe</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,18 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Assistant.cs" />
     <Compile Include="Commands\Exit.cs" />
-    <Compile Include="Commands\GameMenu.cs" />
-    <Compile Include="Commands\GuessGame.cs" />
     <Compile Include="Commands\Help.cs" />
-    <Compile Include="Commands\Sample.cs" />
-    <Compile Include="Commands\TicTacToe.cs" />
-    <Compile Include="Commands\ToDoList.cs" />
-    <Compile Include="ConsoleHelper\Read.cs" />
-    <Compile Include="ConsoleHelper\Write.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Commands\One.cs" />
+    <Compile Include="Commands\Set.cs" />
+    <Compile Include="Commands\Two.cs" />
+    <Compile Include="Commands\IGameCommand.cs" />
+    <Compile Include="IoHelpers\ReadHelper.cs" />
+    <Compile Include="IoHelpers\WriteHelper.cs" />
+    <Compile Include="TicTacToe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GameOperations\GameProvider.cs" />
+    <Compile Include="GameOperations\TicGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -63,24 +66,12 @@
       <Project>{247EEDAF-1299-434D-9366-4D6241C17711}</Project>
       <Name>Component.Service.CommandsManager</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Component.Service.Mail\Component.Service.Mail.csproj">
-      <Project>{C78C1ADA-6FFB-4339-A71A-7498524ED1EB}</Project>
-      <Name>Component.Service.Mail</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Game.Guess\Game.GuessGame.csproj">
-      <Project>{4CB8C8FE-19B2-4971-AA12-9568CD182125}</Project>
-      <Name>Game.GuessGame</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Game.TicTacToe\Game.TicTacToe.csproj">
-      <Project>{4979E546-1CC4-4CE5-9C83-5B5BA953C98E}</Project>
-      <Name>Game.TicTacToe</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InteractiveGraphicMenu\InteractiveGraphicMenu.csproj">
-      <Project>{B4117CEB-A3CC-4BFC-BDCA-602F77F9A5A4}</Project>
-      <Name>InteractiveGraphicMenu</Name>
+    <ProjectReference Include="..\Game.TTTProvider\Game.TTTProvider.csproj">
+      <Project>{ee9dd1ca-48d8-4a5f-a2e4-ca5d4d61e5e1}</Project>
+      <Name>Game.TTTProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\OfficeAssistant.Core\OfficeAssistant.Core.csproj">
-      <Project>{FE435EE4-2BBE-42D0-B6B5-7DDF7DA92C2C}</Project>
+      <Project>{fe435ee4-2bbe-42d0-b6b5-7ddf7da92c2c}</Project>
       <Name>OfficeAssistant.Core</Name>
     </ProjectReference>
   </ItemGroup>

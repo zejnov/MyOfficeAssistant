@@ -42,7 +42,7 @@ namespace OfficeAssistant.ConsoleHelper
                 {
                     command = GetData<string>("\nPlease provide command");
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Console.Write("Bad command, please try again.");
                 }
