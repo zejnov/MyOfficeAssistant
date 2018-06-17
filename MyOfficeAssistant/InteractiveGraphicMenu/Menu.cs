@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using InteractiveGraphicMenu.Helpers;
 using InteractiveGraphicMenu.Interfaces;
 
@@ -21,6 +19,9 @@ namespace InteractiveGraphicMenu
         
         public void Invoke(List<ICommand> list, bool IsRunning = true)
         {
+            if (list.Count == 0)
+                return;
+            
             var tuple = new Tuple<int, int>(0, 0);
 
             var commandsArray = MenuManager.GenerateCommandsArray(list, 4);

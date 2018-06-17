@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using InteractiveGraphicMenu;
+using System.Runtime.InteropServices;
 using InteractiveGraphicMenu.Interfaces;
 
 namespace OfficeAssistant.Commands
@@ -10,21 +10,23 @@ namespace OfficeAssistant.Commands
     {
         private readonly List<ICommand> _avaibleCommands = new List<ICommand>();
         private static CommandManager _manager;
+        private Type _type;
 
         /// <summary>
         /// ctor
         /// </summary>
-        public CommandManager()
+        public CommandManager(Type type)
         {
+            _type = type;
            AddOperations();
         }
 
         /// <summary>
         /// getting/creating one instance of manager
         /// </summary>
-        public static CommandManager GetInstance()
+        public static CommandManager GetInstance(Type type)
         {
-            return _manager ?? (_manager = new CommandManager());
+            return _manager ?? (_manager = new CommandManager(type));
         }
 
         /// <summary>
@@ -32,11 +34,17 @@ namespace OfficeAssistant.Commands
         /// </summary>
         private void AddOperations()
         {
+            var sth = _type;
+            var sthIcom = typeof(ICommand);
+            var xxx = typeof(ICommand);
+            
             var icommands = System.Reflection.Assembly.GetExecutingAssembly()
                 .GetTypes()
-                .Where(mytype => mytype.GetInterfaces()
-                    .Contains(typeof(ICommand))
-                    );
+                .Where(type => type.GetInterfaces().Any(i => i.FullName == sth.FullName));
+
+            var icommansfasdfds = System.Reflection.Assembly.GetExecutingAssembly()
+                .GetTypes()
+                .Where(s => s.GetInterfaces().Contains(_type));
 
             foreach (var mytype in icommands)
             {
@@ -57,9 +65,12 @@ namespace OfficeAssistant.Commands
         /// <summary>
         /// getting command from list
         /// </summary>
-        public IEnumerable<ICommand> GetAvaibleCommands()
+        public List<ICommand> GetAvaibleCommands()
         {
-            return _avaibleCommands;
+            return _avaibleCommands
+                .OrderBy(c => c.Ordinal)
+                .ThenBy(c => c.Name)
+                .ToList();;
         }
 
         /// <summary>

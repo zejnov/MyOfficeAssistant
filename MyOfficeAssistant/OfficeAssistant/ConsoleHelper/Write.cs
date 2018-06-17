@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using InteractiveGraphicMenu;
 using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.Commands;
 
@@ -10,7 +9,7 @@ namespace OfficeAssistant.ConsoleHelper
     {
         internal static void AvaibleCommands()
         {
-            var commands = CommandManager.GetInstance().GetAvaibleCommandNames();
+            var commands = CommandManager.GetInstance(typeof(ICommand)).GetAvaibleCommandNames();
             Console.Clear();
             Console.Write("Avaible commands: ");
             var counter = 0;

@@ -8,6 +8,7 @@ namespace OfficeAssistant.Commands.Impl
     public class CommandSample : ICommand
     {
         public string Name => "bcdefghijklmnoprst";
+        public int Ordinal => 555;
         public string Command => Name;
         public string HelpInfo => "Doing sample stuff";
         public bool IsHighlighted { get; set; }
@@ -17,7 +18,7 @@ namespace OfficeAssistant.Commands.Impl
 
         public void Execute()
         {
-            var list = CommandManager.GetInstance().GetAvaibleCommands().ToList();
+            var list = CommandManager.GetInstance(typeof(ICommand)).GetAvaibleCommands();
             var commandsArray = MenuManager.GenerateCommandsArray(list, 4);
 
             var menu = new GraphicMenu<ICommand>();

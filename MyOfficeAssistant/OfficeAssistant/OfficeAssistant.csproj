@@ -48,15 +48,14 @@
     <Compile Include="Commands\CommandManager.cs" />
     <Compile Include="Commands\Impl\CommandTicTacToe.cs" />
     <Compile Include="Commands\Impl\CommandGuessGame.cs" />
-    <Compile Include="Commands\Impl\CommandMaras.cs" />
     <Compile Include="Commands\Impl\CommandExit.cs" />
     <Compile Include="Commands\Impl\CommandHelp.cs" />
     <Compile Include="Commands\Impl\CommandGameMenu.cs" />
     <Compile Include="Commands\Impl\CommandSample.cs" />
+    <Compile Include="Commands\Impl\CommandToDoList.cs" />
     <Compile Include="ConsoleHelper\Read.cs" />
     <Compile Include="ConsoleHelper\Write.cs" />
     <Compile Include="Domain\ApplicationState.cs" />
-    <Compile Include="Extensions\AppStateExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

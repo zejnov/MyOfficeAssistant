@@ -3,7 +3,6 @@ using System.Linq;
 using InteractiveGraphicMenu;
 using InteractiveGraphicMenu.Helpers;
 using InteractiveGraphicMenu.Interfaces;
-using OfficeAssistant.ConsoleHelper;
 using OfficeAssistant.Domain;
 
 namespace OfficeAssistant.Commands.Impl
@@ -11,6 +10,7 @@ namespace OfficeAssistant.Commands.Impl
     public class CommandGameMenu : ICommand
     {
         public string Name => "GameMenu";
+        public int Ordinal => 50;
         public string Command => "g";
         public string HelpInfo => "Doing sample stuff";
         public bool IsHighlighted { get; set; }
@@ -28,10 +28,8 @@ namespace OfficeAssistant.Commands.Impl
         {
             var tuple = new Tuple<int, int>(0, 0);
 
-            var list = CommandManager.GetInstance()
-                .GetAvaibleCommands()
-                .OrderBy(c => c.Name)
-                .ToList();
+            var list = CommandManager.GetInstance(typeof(ICommand))
+                .GetAvaibleCommands();
 
             var commandsArray = MenuManager.GenerateCommandsArray(list,  4);
             

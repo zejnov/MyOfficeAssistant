@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Windows.Input;
 using InteractiveGraphicMenu;
 using OfficeAssistant.Commands;
 using OfficeAssistant.ConsoleHelper;
@@ -12,7 +13,7 @@ namespace OfficeAssistant.Application
     {
         public bool IsRunning { get; set; }
         private static Assistant _officeAssistant { get; set; }
-        private readonly CommandManager _commandManager = CommandManager.GetInstance();
+        private readonly CommandManager _commandManager = CommandManager.GetInstance(typeof(ICommand));
       
         public static Assistant GetInstance()
         {
@@ -41,11 +42,9 @@ namespace OfficeAssistant.Application
         private void ExternalMenu()
         {
             var list = _commandManager
-                .GetAvaibleCommands()
-                .OrderBy(c => c.Name)
-                .ToList();
+                .GetAvaibleCommands();
 
-            new Menu().Invoke(list);
+            new Menu().Invoke(list, ApplicationState.IsRunning);
         }
 
         /// <summary>
