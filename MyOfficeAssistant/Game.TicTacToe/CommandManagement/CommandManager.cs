@@ -6,7 +6,7 @@ namespace Game.TicTacToe.CommandManagement
 {
     public class CommandManager
     {
-        private readonly List<IMyCommand> _applicationCommands = new List<IMyCommand>();
+        private readonly List<IGameCommand> _applicationCommands = new List<IGameCommand>();
         private static CommandManager _manager;
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Game.TicTacToe.CommandManagement
         /// <summary>
         /// returning all avaible commands (for printing help)
         /// </summary>
-        public List<IMyCommand> GetAllCommands()
+        public List<IGameCommand> GetAllCommands()
         {
             return _applicationCommands.ToList();
         }

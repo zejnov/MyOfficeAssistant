@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Game.TicTacToe</RootNamespace>
     <AssemblyName>Game.TicTacToe</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
@@ -51,7 +51,7 @@
     <Compile Include="CommandManagement\Commands\CommandSet.cs" />
     <Compile Include="CommandManagement\Commands\CommandOne.cs" />
     <Compile Include="CommandManagement\Commands\CommandTwo.cs" />
-    <Compile Include="CommandManagement\Commands\IMyCommand.cs" />
+    <Compile Include="CommandManagement\Commands\IGameCommand.cs" />
     <Compile Include="IoHelpers\ReadHelper.cs" />
     <Compile Include="IoHelpers\WriteHelper.cs" />
     <Compile Include="TicTacToe.cs" />
@@ -63,6 +63,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Component.Service.CommandsManager\Component.Service.CommandsManager.csproj">
+      <Project>{247EEDAF-1299-434D-9366-4D6241C17711}</Project>
+      <Name>Component.Service.CommandsManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Game.TTTProvider\Game.TTTProvider.csproj">
       <Project>{ee9dd1ca-48d8-4a5f-a2e4-ca5d4d61e5e1}</Project>
       <Name>Game.TTTProvider</Name>

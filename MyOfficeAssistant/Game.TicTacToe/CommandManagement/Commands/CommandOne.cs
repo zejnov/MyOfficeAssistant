@@ -2,9 +2,11 @@
 
 namespace Game.TicTacToe.CommandManagement.Commands
 {
-    class CommandOne : IMyCommand
+    class CommandOne : IGameCommand
     {
         public string Name => "One"; //Play
+        public int Ordinal => 1;
+        public string Command => Name;
         public string HelpInfo => "Game for One vs AI";
         public void Execute()
         {
