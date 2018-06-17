@@ -4,7 +4,7 @@ using InteractiveGraphicMenu.Interfaces;
 
 namespace InteractiveGraphicMenu
 {
-    public class MenuManager<T> where T : class, IHighlighted
+    public class MenuManager<T> where T : class, ISelected
     {
         public void ExecuteMenuMove(T[][] commandsArray, Tuple<int, int> tuple)
         {
@@ -12,7 +12,7 @@ namespace InteractiveGraphicMenu
                 return;
 
             ClearAllHiglihgts(commandsArray, 2,4);
-            commandsArray[tuple.Item2][tuple.Item1].IsHighlighted = true;
+            commandsArray[tuple.Item2][tuple.Item1].IsSelected = true;
         }
 
         private void ClearAllHiglihgts(T[][] commandsArray, int rows, int columns)
@@ -23,7 +23,7 @@ namespace InteractiveGraphicMenu
                 {
                     if (commandsArray[row][column] == null)
                         continue;
-                    commandsArray[row][column].IsHighlighted = false;
+                    commandsArray[row][column].IsSelected = false;
                 }
             }
         }

@@ -33,7 +33,7 @@ namespace InteractiveGraphicMenu
                 tuple = ArrowsHandling.GetValidHighligthMove(tuple.Item1, tuple.Item2, 4, 2, out var isExecution);
                 if (isExecution)
                 {
-                    list.FirstOrDefault(c => c.IsHighlighted)?.Execute();
+                    list.FirstOrDefault(c => c.IsSelected)?.Execute();
                 }
 
             } while (IsRunning);

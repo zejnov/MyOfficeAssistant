@@ -6,11 +6,11 @@ namespace OfficeAssistant.Commands.Impl
 {
     internal class MainMenuCommandExit : IMainMenuCommand
     {
-        public string Name => "Exit";
+        public string DisplayName => "Exit";
         public int Ordinal => 999;
-        public string Command => Name;
+        public string Command => DisplayName;
         public string HelpInfo => "Exit application";
-        public bool IsHighlighted{get; set; }
+        public bool IsSelected{get; set; }
 
         public void Execute()
         {

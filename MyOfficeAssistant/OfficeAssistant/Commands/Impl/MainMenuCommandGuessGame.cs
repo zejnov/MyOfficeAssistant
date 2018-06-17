@@ -5,11 +5,11 @@ namespace OfficeAssistant.Commands.Impl
 {
     public class MainMenuCommandGuessGame : IMainMenuCommand
     {
-        public string Name => "GuessGame";
+        public string DisplayName => "GuessGame";
         public int Ordinal => 101;
         public string Command => "GG";
         public string HelpInfo => "Play Guess Game";
-        public bool IsHighlighted { get; set; }
+        public bool IsSelected { get; set; }
         
         public void Execute()
         {

@@ -4,9 +4,9 @@ namespace Game.TicTacToe.CommandManagement.Commands
 {
     class CommandTwo : IGameCommand
     {
-        public string Name => "Two"; //Play
+        public string DisplayName => "Two"; //Play
         public int Ordinal => 2;
-        public string Command => Name;
+        public string Command => DisplayName;
         public string HelpInfo => "Game for Two";
         public void Execute()
         {

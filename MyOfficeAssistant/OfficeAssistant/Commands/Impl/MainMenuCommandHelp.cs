@@ -6,11 +6,11 @@ namespace OfficeAssistant.Commands.Impl
 {
     internal class MainMenuCommandHelp : IMainMenuCommand
     {
-        public string Name => "Help";
+        public string DisplayName => "Help";
         public int Ordinal => 888;
-        public string Command => Name;
+        public string Command => DisplayName;
         public string HelpInfo => "Printing help informatiosn";
-        public bool IsHighlighted { get; set; }
+        public bool IsSelected { get; set; }
 
         public void Execute()
         {

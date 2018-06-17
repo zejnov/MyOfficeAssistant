@@ -48,7 +48,7 @@ namespace OfficeAssistant.ConsoleHelper
             Console.WriteLine("WELCOME TO HELP!");
             foreach (var command in commands)
             {
-                Console.WriteLine($"\n{i++}. {command.Name} \t-\t {command.HelpInfo}");
+                Console.WriteLine($"\n{i++}. {command.DisplayName} \t-\t {command.HelpInfo}");
             }
             Console.WriteLine("\n\nzjv/2017\n");
             Read.Wait();

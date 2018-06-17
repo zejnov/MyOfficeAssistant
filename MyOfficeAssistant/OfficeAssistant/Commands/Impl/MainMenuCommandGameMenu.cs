@@ -10,11 +10,11 @@ namespace OfficeAssistant.Commands.Impl
 {
     public class MainMenuCommandGameMenu : IMainMenuCommand
     {
-        public string Name => "GameMenu";
+        public string DisplayName => "GameMenu";
         public int Ordinal => 50;
         public string Command => "g";
         public string HelpInfo => "Doing sample stuff";
-        public bool IsHighlighted { get; set; }
+        public bool IsSelected { get; set; }
 
         private ArrowsHandling _arrowsHandling { get; set; }
         private GraphicMenu<IMainMenuCommand> _graphicMenu { get; set; }
@@ -42,7 +42,7 @@ namespace OfficeAssistant.Commands.Impl
                 tuple = ArrowsHandling.GetValidHighligthMove(tuple.Item1, tuple.Item2, 4, 2, out var isExecution);
                 if (isExecution)
                 {
-                    list.FirstOrDefault(c => c.IsHighlighted).Execute();
+                    list.FirstOrDefault(c => c.IsSelected).Execute();
                 }
             }
         }

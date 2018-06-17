@@ -5,11 +5,11 @@ namespace OfficeAssistant.Commands.Impl
 {
     internal class MainMenuCommandToDoList : IMainMenuCommand
     {
-        public string Name => "ToDoList";
+        public string DisplayName => "ToDoList";
         public int Ordinal => 1;
         public string Command => "todo";
         public string HelpInfo => "In memory ToDo List";
-        public bool IsHighlighted { get; set; }
+        public bool IsSelected { get; set; }
 
         public void Execute()
         {

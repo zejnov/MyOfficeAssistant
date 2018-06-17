@@ -5,7 +5,7 @@ using InteractiveGraphicMenu.Interfaces;
 
 namespace InteractiveGraphicMenu
 {
-    public class GraphicMenu<T> where T : IHighlighted
+    public class GraphicMenu<T> where T : ISelected
     {
         public void PrintMenu(T[][] commandsArray)
         {
@@ -50,12 +50,12 @@ namespace InteractiveGraphicMenu
                 return;
             }
             
-            var commandToPrint = command.Name.Length > optionSize ? command.Name.Remove(optionSize) : command.Name;
+            var commandToPrint = command.DisplayName.Length > optionSize ? command.DisplayName.Remove(optionSize) : command.DisplayName;
 
-            var freeSpace = optionSize - command.Name.Length;
+            var freeSpace = optionSize - command.DisplayName.Length;
             var spaceSize = freeSpace / 2;
 
-            if (command.IsHighlighted)
+            if (command.IsSelected)
             {
                 Console.BackgroundColor = ConsoleColor.Gray;
                 Console.ForegroundColor = ConsoleColor.Black;

@@ -8,11 +8,11 @@ namespace OfficeAssistant.Commands.Impl
 {
     public class MainMenuCommandSample : IMainMenuCommand
     {
-        public string Name => "bcdefghijklmnoprst";
+        public string DisplayName => "bcdefghijklmnoprst";
         public int Ordinal => 555;
-        public string Command => Name;
+        public string Command => DisplayName;
         public string HelpInfo => "Doing sample stuff";
-        public bool IsHighlighted { get; set; }
+        public bool IsSelected { get; set; }
 
         private MenuManager<IMainMenuCommand> _menuManager { get; set; }
         public MenuManager<IMainMenuCommand> MenuManager => _menuManager ?? (_menuManager = new MenuManager<IMainMenuCommand>());

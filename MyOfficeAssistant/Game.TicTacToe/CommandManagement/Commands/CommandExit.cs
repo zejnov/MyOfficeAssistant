@@ -4,9 +4,9 @@ namespace Game.TicTacToe.CommandManagement.Commands
 {
     public class CommandExit : IGameCommand
     {
-        public string Name => "Exit";
+        public string DisplayName => "Exit";
         public int Ordinal => 999;
-        public string Command => Name;
+        public string Command => DisplayName;
         public string HelpInfo => "Exit application";
         public void Execute()
         {
