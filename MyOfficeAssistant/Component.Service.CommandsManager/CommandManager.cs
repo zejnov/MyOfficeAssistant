@@ -64,9 +64,21 @@ namespace Component.Service.CommandsManager
         /// <summary>
         /// managing given command to execute
         /// </summary>
-        public void Execute(string choosenCommand) => _avaibleCommands
-            .SingleOrDefault(c => c.Command.Equals(choosenCommand, StringComparison.InvariantCultureIgnoreCase))?
-            .Execute();
+        public void Execute(string choosenCommand)
+        {
+            var command = _avaibleCommands
+                .Single(c => c.Command.Equals(choosenCommand, StringComparison.InvariantCultureIgnoreCase));
+
+            var type = command.GetType();
+            
+            var activated = Activator.CreateInstance(type) as T;
+            
+            activated.Execute();
+            
+            _avaibleCommands
+                .SingleOrDefault(c => c.Command.Equals(choosenCommand, StringComparison.InvariantCultureIgnoreCase))?
+                .Execute();
+        }
 
         /// <summary>
         /// check if command exist

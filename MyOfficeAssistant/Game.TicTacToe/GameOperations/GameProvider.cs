@@ -15,7 +15,7 @@ namespace Game.TicTacToe.GameOperations
             {
                 try
                 {
-                    ProviderLoopExtra();
+                    CommandMenu();
                 }
                 catch (ExitException)
                 {
@@ -36,7 +36,7 @@ namespace Game.TicTacToe.GameOperations
             CommandManager<IGameCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).Execute(choosenCommand);
         }
 
-        private void ProviderLoopExtra()
+        private void CommandMenu()
         {
             var commands = CommandManager<IGameCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommands();
             new Menu<IGameCommand>().Invoke(commands);

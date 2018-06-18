@@ -18,7 +18,7 @@ namespace InteractiveGraphicMenu
 
             PrintHeader("Menu name");
             PrintMenuOptions(commandsArray);
-            //print optionals info
+            //print optionals info & footer?
             PrintHorizontalLine(61, true);
         }
 

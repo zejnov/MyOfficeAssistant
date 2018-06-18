@@ -35,6 +35,7 @@ namespace InteractiveGraphicMenu
                 if (isExecution)
                 {
                     list.FirstOrDefault(c => c.IsSelected)?.Execute();
+                    //todo use Command Manager Execution
                 }
 
             } while (isRunning);
