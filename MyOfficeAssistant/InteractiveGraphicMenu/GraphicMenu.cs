@@ -25,7 +25,7 @@ namespace InteractiveGraphicMenu
         //********************************** OPTIONS ******************************
         private void PrintMenuOptions(T[][] commandsArray, int size = 61)
         {
-            var rows = 2;
+            var rows = commandsArray.Length;
             var columns = 4;
 
             for (var row = 0; row < rows; row++)

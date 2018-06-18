@@ -1,8 +1,8 @@
 ﻿using InteractiveGraphicMenu.Interfaces;
 
-namespace OfficeAssistant.Commands
+namespace OfficeAssistant.Commands.GameMenu
 {
-    public class TicTacToe : IMainMenuCommand
+    public class TicTacToe : IGameMenuCommand
     {
         public string DisplayName => "TicTacToe";
         public int Ordinal => 444;

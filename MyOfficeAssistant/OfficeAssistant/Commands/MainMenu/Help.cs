@@ -2,7 +2,7 @@
 using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.ConsoleHelper;
 
-namespace OfficeAssistant.Commands
+namespace OfficeAssistant.Commands.MainMenu
 {
     internal class Help : IMainMenuCommand
     {

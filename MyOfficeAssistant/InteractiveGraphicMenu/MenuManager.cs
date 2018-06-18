@@ -11,7 +11,10 @@ namespace InteractiveGraphicMenu
             if (commandsArray[tuple.Item2][tuple.Item1] == null)
                 return;
 
-            ClearAllHiglihgts(commandsArray, 2,4);
+            var elementsInRow = 4;
+            var rows = commandsArray.Length;
+            
+            ClearAllHiglihgts(commandsArray, rows, elementsInRow);
             commandsArray[tuple.Item2][tuple.Item1].IsSelected = true;
         }
 

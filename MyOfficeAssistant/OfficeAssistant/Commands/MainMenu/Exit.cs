@@ -1,8 +1,7 @@
-﻿using System;
-using InteractiveGraphicMenu.Interfaces;
+﻿using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.Core.Exception;
 
-namespace OfficeAssistant.Commands
+namespace OfficeAssistant.Commands.MainMenu
 {
     internal class Exit : IMainMenuCommand
     {

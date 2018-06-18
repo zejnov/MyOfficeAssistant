@@ -43,13 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\Assistant.cs" />
-    <Compile Include="Commands\Exit.cs" />
-    <Compile Include="Commands\GameMenu.cs" />
-    <Compile Include="Commands\GuessGame.cs" />
-    <Compile Include="Commands\Help.cs" />
-    <Compile Include="Commands\Sample.cs" />
-    <Compile Include="Commands\TicTacToe.cs" />
-    <Compile Include="Commands\ToDoList.cs" />
+    <Compile Include="Commands\GameMenu\Exit.cs" />
+    <Compile Include="Commands\GameMenu\GuessGame.cs" />
+    <Compile Include="Commands\GameMenu\TicTacToe.cs" />
+    <Compile Include="Commands\MainMenu\Exit.cs" />
+    <Compile Include="Commands\MainMenu\GameMenu.cs" />
+    <Compile Include="Commands\MainMenu\Help.cs" />
+    <Compile Include="Commands\MainMenu\Sample.cs" />
+    <Compile Include="Commands\MainMenu\ToDoList.cs" />
     <Compile Include="ConsoleHelper\Read.cs" />
     <Compile Include="ConsoleHelper\Write.cs" />
     <Compile Include="Program.cs" />

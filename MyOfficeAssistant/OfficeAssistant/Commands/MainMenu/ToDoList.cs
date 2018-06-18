@@ -1,7 +1,7 @@
 ﻿using System;
 using InteractiveGraphicMenu.Interfaces;
 
-namespace OfficeAssistant.Commands
+namespace OfficeAssistant.Commands.MainMenu
 {
     internal class ToDoList : IMainMenuCommand
     {

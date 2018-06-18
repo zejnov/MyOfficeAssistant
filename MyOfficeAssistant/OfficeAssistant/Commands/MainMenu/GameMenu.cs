@@ -7,7 +7,7 @@ using InteractiveGraphicMenu.Interfaces;
 using OfficeAssistant.Core.Exception;
 using OfficeAssistant.Core.State;
 
-namespace OfficeAssistant.Commands
+namespace OfficeAssistant.Commands.MainMenu
 {
     public class GameMenu : IMainMenuCommand
     {
@@ -18,12 +18,12 @@ namespace OfficeAssistant.Commands
         public bool IsSelected { get; set; }
 
         private ArrowsHandling _arrowsHandling { get; set; }
-        private GraphicMenu<IMainMenuCommand> _graphicMenu { get; set; }
-        private MenuManager<IMainMenuCommand> _menuManager { get; set; }
+        private GraphicMenu<IGameMenuCommand> _graphicMenu { get; set; }
+        private MenuManager<IGameMenuCommand> _menuManager { get; set; }
 
         //for IoC in future
-        public MenuManager<IMainMenuCommand> MenuManager => _menuManager ?? (_menuManager = new MenuManager<IMainMenuCommand>());
-        public GraphicMenu<IMainMenuCommand> GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu<IMainMenuCommand>());
+        public MenuManager<IGameMenuCommand> MenuManager => _menuManager ?? (_menuManager = new MenuManager<IGameMenuCommand>());
+        public GraphicMenu<IGameMenuCommand> GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu<IGameMenuCommand>());
         public ArrowsHandling ArrowsHandling => _arrowsHandling ?? (_arrowsHandling = new ArrowsHandling());
 
         public void Execute()
@@ -32,19 +32,19 @@ namespace OfficeAssistant.Commands
             //TODO
             var tuple = new Tuple<int, int>(0, 0);
 
-            var list = CommandManager<IMainMenuCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly())
+            var list = CommandManager<IGameMenuCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly())
                 .GetAvaibleCommands();
 
             var commandsArray = MenuManager.GenerateCommandsArray(list,  4);
 
             try
             {
-                while (ApplicationState.IsRunning)
+                while (true)
                 {
                     Console.Clear();
                     MenuManager.ExecuteMenuMove(commandsArray, tuple);
                     GraphicMenu.PrintMenu(commandsArray);
-                    tuple = ArrowsHandling.GetValidHighligthMove(tuple.Item1, tuple.Item2, 4, 2, out var isExecution);
+                    tuple = ArrowsHandling.GetValidHighligthMove(tuple.Item1, tuple.Item2, 4, commandsArray.Length, out var isExecution);
                     if (isExecution)
                     {
                         list.FirstOrDefault(c => c.IsSelected).Execute();

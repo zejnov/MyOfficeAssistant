@@ -3,7 +3,7 @@ using Component.Service.CommandsManager;
 using InteractiveGraphicMenu;
 using InteractiveGraphicMenu.Interfaces;
 
-namespace OfficeAssistant.Commands
+namespace OfficeAssistant.Commands.MainMenu
 {
     public class Sample : IMainMenuCommand
     {
@@ -18,13 +18,8 @@ namespace OfficeAssistant.Commands
 
         public void Execute()
         {
-            var list = CommandManager<IMainMenuCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommands();
-            var commandsArray = MenuManager.GenerateCommandsArray(list, 4);
-
-            var menu = new GraphicMenu<IMainMenuCommand>();
             Console.Clear();
-
-            menu.PrintMenu(commandsArray);
+            Console.Write("Sample command");
 
             Console.ReadKey();
         }
