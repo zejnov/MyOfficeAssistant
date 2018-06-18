@@ -43,10 +43,10 @@ namespace OfficeAssistant.Application
 
         private void ExternalMenu()
         {
-            var list = _commandManager
+            var commands = _commandManager
                 .GetAvaibleCommands();
 
-            new Menu().Invoke(list, ApplicationState.IsRunning);
+            new Menu<IMainMenuCommand>().Invoke(commands, ApplicationState.IsRunning);
         }
 
         /// <summary>

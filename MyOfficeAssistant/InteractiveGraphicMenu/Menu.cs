@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Component.Service.CommandsManager.Interfaces;
 using InteractiveGraphicMenu.Helpers;
 using InteractiveGraphicMenu.Interfaces;
 
 namespace InteractiveGraphicMenu
 {
-    public class Menu
+    public class Menu<T> where T : class, ISelected, IBaseCommand
     {
         private ArrowsHandling _arrowsHandling { get; set; }
-        private GraphicMenu<IMainMenuCommand> _graphicMenu { get; set; }
-        private MenuManager<IMainMenuCommand> _menuManager { get; set; }
+        private GraphicMenu<T> _graphicMenu { get; set; }
+        private MenuManager<T> _menuManager { get; set; }
 
         //for IoC in future
-        public MenuManager<IMainMenuCommand> MenuManager => _menuManager ?? (_menuManager = new MenuManager<IMainMenuCommand>());
-        public GraphicMenu<IMainMenuCommand> GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu<IMainMenuCommand>());
+        public MenuManager<T> MenuManager => _menuManager ?? (_menuManager = new MenuManager<T>());
+        public GraphicMenu<T> GraphicMenu => _graphicMenu ?? (_graphicMenu = new GraphicMenu<T>());
         public ArrowsHandling ArrowsHandling => _arrowsHandling ?? (_arrowsHandling = new ArrowsHandling());
         
-        public void Invoke(List<IMainMenuCommand> list, bool IsRunning = true)
+        public void Invoke(List<T> list, bool isRunning = true)
         {
             if (list.Count == 0)
                 return;
@@ -36,7 +37,7 @@ namespace InteractiveGraphicMenu
                     list.FirstOrDefault(c => c.IsSelected)?.Execute();
                 }
 
-            } while (IsRunning);
+            } while (isRunning);
         }
     }
 }

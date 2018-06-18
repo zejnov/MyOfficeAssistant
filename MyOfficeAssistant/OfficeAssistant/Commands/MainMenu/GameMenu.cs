@@ -28,28 +28,12 @@ namespace OfficeAssistant.Commands.MainMenu
 
         public void Execute()
         {
-            
-            //TODO
-            var tuple = new Tuple<int, int>(0, 0);
-
             var list = CommandManager<IGameMenuCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly())
                 .GetAvaibleCommands();
 
-            var commandsArray = MenuManager.GenerateCommandsArray(list,  4);
-
             try
             {
-                while (true)
-                {
-                    Console.Clear();
-                    MenuManager.ExecuteMenuMove(commandsArray, tuple);
-                    GraphicMenu.PrintMenu(commandsArray);
-                    tuple = ArrowsHandling.GetValidHighligthMove(tuple.Item1, tuple.Item2, 4, commandsArray.Length, out var isExecution);
-                    if (isExecution)
-                    {
-                        list.FirstOrDefault(c => c.IsSelected).Execute();
-                    }
-                }
+                new Menu<IGameMenuCommand>().Invoke(list, ApplicationState.IsRunning);
             }
             catch (ExitException e)
             {
