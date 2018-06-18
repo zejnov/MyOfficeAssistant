@@ -1,5 +1,4 @@
 ﻿using System;
-using Component.Service.CommandsManager;
 using InteractiveGraphicMenu;
 using InteractiveGraphicMenu.Interfaces;
 

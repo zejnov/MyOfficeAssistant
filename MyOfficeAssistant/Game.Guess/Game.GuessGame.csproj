@@ -48,7 +48,6 @@
     <Compile Include="GameExecutor.cs" />
     <Compile Include="GuessGame.cs" />
     <Compile Include="IGame.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

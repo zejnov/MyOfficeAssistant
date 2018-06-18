@@ -1,7 +1,6 @@
 ﻿using System;
 using Component.Service.CommandsManager;
-using Game.TicTacToe.CommandManagement;
-using Game.TicTacToe.CommandManagement.Commands;
+using Game.TicTacToe.Commands;
 
 namespace Game.TicTacToe.IoHelpers
 {

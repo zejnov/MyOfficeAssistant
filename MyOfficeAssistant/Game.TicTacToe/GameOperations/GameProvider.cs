@@ -1,7 +1,8 @@
 ﻿using System;
 using Component.Service.CommandsManager;
-using Game.TicTacToe.CommandManagement.Commands;
+using Game.TicTacToe.Commands;
 using Game.TicTacToe.IoHelpers;
+using InteractiveGraphicMenu;
 using OfficeAssistant.Core.Exception;
 
 namespace Game.TicTacToe.GameOperations
@@ -14,7 +15,7 @@ namespace Game.TicTacToe.GameOperations
             {
                 try
                 {
-                    ProviderLoop();
+                    ProviderLoopExtra();
                 }
                 catch (ExitException)
                 {
@@ -28,11 +29,17 @@ namespace Game.TicTacToe.GameOperations
             } while (true);
         }
 
-        private void ProviderLoop()
+        private void SampleMenu()  //if sth crash
         {
             WriteHelper.PrintAvaibleCommands();
             var choosenCommand = ReadHelper.GetCommandFromUser();
             CommandManager<IGameCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).Execute(choosenCommand);
+        }
+
+        private void ProviderLoopExtra()
+        {
+            var commands = CommandManager<IGameCommand>.GetInstance(System.Reflection.Assembly.GetExecutingAssembly()).GetAvaibleCommands();
+            new Menu<IGameCommand>().Invoke(commands);
         }
     }
 }

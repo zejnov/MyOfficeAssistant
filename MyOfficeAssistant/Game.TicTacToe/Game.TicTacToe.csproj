@@ -70,6 +70,10 @@
       <Project>{ee9dd1ca-48d8-4a5f-a2e4-ca5d4d61e5e1}</Project>
       <Name>Game.TTTProvider</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InteractiveGraphicMenu\InteractiveGraphicMenu.csproj">
+      <Project>{B4117CEB-A3CC-4BFC-BDCA-602F77F9A5A4}</Project>
+      <Name>InteractiveGraphicMenu</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OfficeAssistant.Core\OfficeAssistant.Core.csproj">
       <Project>{fe435ee4-2bbe-42d0-b6b5-7ddf7da92c2c}</Project>
       <Name>OfficeAssistant.Core</Name>
