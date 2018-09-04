@@ -1,9 +1,10 @@
 ﻿using System;
 using InteractiveGraphicMenu.Interfaces;
+using Tool.ToDoList;
 
 namespace OfficeAssistant.Commands.MainMenu
 {
-    internal class ToDoList : IMainMenuCommand
+    internal class ToDo : IMainMenuCommand
     {
         public string DisplayName => "ToDoList";
         public int Ordinal => 1;
@@ -14,7 +15,7 @@ namespace OfficeAssistant.Commands.MainMenu
         public void Execute()
         {
             Console.Clear();
-            Console.Write("todo");
+            new ToDoList().Run();
             Console.ReadLine();
         }
     }

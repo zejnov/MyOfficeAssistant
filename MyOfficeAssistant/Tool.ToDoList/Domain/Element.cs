@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Domain
+﻿namespace Tool.ToDoList.Domain
 {
     public class Element
     {

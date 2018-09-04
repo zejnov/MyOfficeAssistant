@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ToDoList.Domain;
-using ToDoList.Repository;
+using Tool.ToDoList.Domain;
+using Tool.ToDoList.Repository;
 
-namespace ToDoList.Service.Impl
+namespace Tool.ToDoList.Service.Impl
 {
     public class ElementService
     {

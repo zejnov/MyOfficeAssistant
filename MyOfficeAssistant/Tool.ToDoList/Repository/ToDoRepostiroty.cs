@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ToDoList.Domain;
+using Tool.ToDoList.Domain;
 
-namespace ToDoList.Repository
+namespace Tool.ToDoList.Repository
 {
     public class ToDoRepostiroty
     {

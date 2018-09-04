@@ -84,6 +84,10 @@
       <Project>{FE435EE4-2BBE-42D0-B6B5-7DDF7DA92C2C}</Project>
       <Name>OfficeAssistant.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tool.ToDoList\Tool.ToDoList.csproj">
+      <Project>{079558cc-2b72-421b-99b8-3950e1b654d5}</Project>
+      <Name>Tool.ToDoList</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
